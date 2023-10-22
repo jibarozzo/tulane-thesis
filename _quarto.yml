@@ -5,7 +5,7 @@ project:
 book:
   title: "The title of my most excellent thesis"
   author: "Jane Doe"
-  date: today
+  date: '`r format(Sys.Date(), "%B %d, %Y")`'
   date-format: "MMMM YYYY"
   chapters:
     - index.qmd
@@ -36,24 +36,33 @@ format:
     papersize: a4
     header-includes: |
       \usepackage{titling}
-      \setlength{\droptitle}{-2cm}
+      \usepackage{datetime}
+      \usepackage{geometry}
+       \geometry{
+       a4paper,
+       total={170mm,257mm},
+       left=25mm,
+       top=25mm,
+       }
+      \setlength{\droptitle}{-4cm}
       \preauthor{
         \begin{center}
-        \includegraphics[width=5in,height=4in]{figures/IMG_20210719_134928644.jpg}\\ % cover figure
-        \Large
+         DISSERTATION\\   % Degree
+         SUBMITTED ON \MakeUppercase{\today}\\
+         TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
+         IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
+         OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
+         OF TULANE UNIVERSITY\\
+         FOR THE DEGREE\\
+         OF\\
+         DOCTOR OF PHILOSOPHY\\
+         BY\\
+         \vspace{7mm}
       }
       \postauthor{
         \end{center}
       }
-      \predate{
-        \begin{center}
-        Master of Science in Biology\\               % Degree
-        Biodiversity, Evolution and Ecology\\        % Degree stream
-        Department of Biological Sciences\\          % Department
-        University of Bergen\\                       % University 
-        \vspace{5mm}
-      }
-      \postdate{
+       \postdate{
         \\
         \includegraphics[width=1.5in,height=1.5in]{figures/UiB-emblem500px_gray.png}\\
         \end{center}
