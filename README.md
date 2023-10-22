@@ -4,7 +4,7 @@
 
 <!-- badges: end -->
 
-The quartothesis is a skeleton of a Masters Thesis in the style used by the Department of Biological Sciences, University of Bergen (and probably elsewhere).
+The quartothesis is a skeleton of a Masters Thesis in the style used by the Department of Biological Sciences, University of Bergen (and probably elsewhere). I forked this repository to adapt it to Tulane University's standards as of October 2023. Notice that the school could change their format in the future. 
 
 You can view the rendered version of the thesis skeleton in [html](https://biostats-r.github.io/quartothesis/) or [pdf](https://biostats-r.github.io/quartothesis/The-title-of-my-most-excellent-thesis.pdf).
 
