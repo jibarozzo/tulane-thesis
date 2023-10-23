@@ -5,11 +5,11 @@ project:
 book:
   title: "The title of my most excellent thesis"
   author: "Jane Doe"
-  date: '`r format(Sys.Date(), "%B %d, %Y")`'
-  date-format: "MMMM YYYY"
+  date: "`r format(Sys.Date(), %B %d, %Y)`"
+  #date-format: "MMMM YYYY"
   chapters:
     - index.qmd
-#    - acknowledgements.qmd         # uncomment this line to see acknowledgements in html (will appear twice in pfd)
+    - acknowledgements.qmd         # uncomment this line to see acknowledgements in html (will appear twice in pfd)
     - 0-abstract.qmd
     - 1-introduction.qmd
     - 2-methods.qmd
@@ -27,51 +27,76 @@ execute:
   echo: true # change to false to hide code
 
 format:
-  html:
-    theme: cosmo
+  # html:
+  #   theme: cosmo
   pdf:
     documentclass: scrbook
     keep-tex: true 
-    toc: false
+    toc: true
+    toc-depth: 3
+    toc-title: "Table of Contents"
+    lof: true
+    lot: true
+    number-sections: true
+    number-depth: 2
+    geometry:
+      - inner=3cm
+      - outer=4cm
+      - top=3cm
+      - bottom=4cm
+      - headsep=22pt
+      - headheight=11pt
+      - footskip=33pt
+      - ignorehead
+      - ignorefoot
+      - heightrounded
+    linestretch: 2.0
+    fontsize: 12pt
+    mainfont: Liberation Serif
     papersize: a4
-    header-includes: |
-      \usepackage{titling}
-      \usepackage{datetime}
-      \usepackage{geometry}
-       \geometry{
-       a4paper,
-       total={170mm,257mm},
-       left=25mm,
-       top=25mm,
-       }
-      \setlength{\droptitle}{-4cm}
-      \preauthor{
-        \begin{center}
-         DISSERTATION\\   % Degree
-         SUBMITTED ON \MakeUppercase{\today}\\
-         TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
-         IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
-         OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
-         OF TULANE UNIVERSITY\\
-         FOR THE DEGREE\\
-         OF\\
-         DOCTOR OF PHILOSOPHY\\
-         BY\\
-         \vspace{7mm}
-      }
-      \postauthor{
-        \end{center}
-      }
-       \postdate{
-        \\
-        \includegraphics[width=1.5in,height=1.5in]{figures/UiB-emblem500px_gray.png}\\
-        \end{center}
-        \newpage
-        \mbox{}
-        \vfill
-        Cover page\\
-        \emph{Beckwithia glacialis} on Snøhetta.
-       }
+    template-partials:
+    - before-body.tex
+    #- toc.tex
+ 
+editor: source
 
-editor: visual
+
+     # header-includes:
+    #   \usepackage{titling}
+    #   \usepackage{datetime}
+    #   \usepackage{geometry}
+    #    \geometry{
+    #    a4paper,
+    #    total={170mm,257mm},
+    #    left=25mm,
+    #    top=25mm,
+    #    }
+    #   \setlength{\droptitle}{-4cm}
+    #   \preauthor{
+    #     \begin{center}
+    #      DISSERTATION\\   % Degree
+    #      SUBMITTED ON \MakeUppercase{\today}\\
+    #      TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
+    #      IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
+    #      OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
+    #      OF TULANE UNIVERSITY\\
+    #      FOR THE DEGREE\\
+    #      OF\\
+    #      DOCTOR OF PHILOSOPHY\\
+    #      BY\\
+    #      \vspace{7mm}
+    #   }
+    #   \postauthor{
+    #     \end{center}
+    #   }
+    #    \postdate{
+    #     \\
+    #     \includegraphics[width=1.5in,height=1.5in]{figures/UiB-emblem500px_gray.png}\\
+    #     \end{center}
+    #     \newpage
+    #     \mbox{}
+    #     \vfill
+    #     Cover page\\
+    #     \emph{Beckwithia glacialis} on Snøhetta.
+    #    }
 

@@ -1,0 +1,51 @@
+$if(has-frontmatter)$
+  \frontmatter
+$endif$
+  $if(title)$
+  \cleardoublepage
+\thispagestyle{empty}
+{\centering
+  \hbox{}\vskip 0cm plus 1fill
+  {\Huge\bfseries $title$ \par}
+  $if(subtitle)$
+    \vspace{3ex}
+  {\Large\bfseries $subtitle$ \par}
+  $endif$
+    \vspace{12ex}
+    {\small DISSERTATION\\   % Degree
+         SUBMITTED ON \MakeUppercase{\today}\\
+         TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
+         IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
+         OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
+         OF TULANE UNIVERSITY\\
+         FOR THE DEGREE\\
+         OF\\
+         DOCTOR OF PHILOSOPHY\\
+         BY\\ \par}
+    \vspace{12ex}
+  $for(by-author)$
+    {\Large\bfseries $by-author.name.literal$ \par}
+  \vspace{3ex}
+  %{\Large ORCID: $by-author.orcid$ \par}
+  %\vskip 0cm plus 2fill
+  %{\bfseries\large Doctor of Philosophy \par}
+  %\vspace{3ex}
+  {\bfseries\large $date$ \par} %Uncomment to inclide date below author name
+  \vspace{12ex}
+  $for(by-author.affiliations)$ %
+  $if(it.department)$ %
+  {\bfseries\large $it.department$ \par}
+  $endif$ %
+  {\bfseries\large $it.name$ \par}
+  $endfor$$endfor$%
+  \vspace{12ex}
+  % Signature Line
+  \vfill
+  \begin{tabular}{@{}c@{\hspace{3cm}}c@{}}
+    \rule{0.4\textwidth}{0.4pt} & \rule{0.4\textwidth}{0.4pt} \\
+    Your Signature 1 & Your Signature 2 \\
+    \rule{0.4\textwidth}{0.4pt} & \rule{0.4\textwidth}{0.4pt} \\
+    Your Signature 3 & Your Signature 4 \\
+  \end{tabular}
+}
+$endif$

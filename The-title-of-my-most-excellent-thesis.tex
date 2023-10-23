@@ -3,10 +3,12 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  12pt,
   a4paper,
 ]{scrbook}
 
 \usepackage{amsmath,amssymb}
+\usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -20,6 +22,7 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
+  \setmainfont[]{Liberation Serif}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -38,8 +41,9 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[inner=3cm,outer=4cm,top=3cm,bottom=4cm,headsep=22pt,headheight=11pt,footskip=33pt,ignorehead,ignorefoot,heightrounded]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{2}
 % Make \paragraph and \subparagraph free-standing
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
@@ -139,43 +143,6 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage{titling}
-\usepackage{datetime}
-\usepackage{geometry}
- \geometry{
- a4paper,
- total={170mm,257mm},
- left=25mm,
- top=25mm,
- }
-\setlength{\droptitle}{-4cm}
-\preauthor{
-  \begin{center}
-   DISSERTATION\\   % Degree
-   SUBMITTED ON \MakeUppercase{\today}\\
-   TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
-   IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
-   OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
-   OF TULANE UNIVERSITY\\
-   FOR THE DEGREE\\
-   OF\\
-   DOCTOR OF PHILOSOPHY\\
-   BY\\
-   \vspace{7mm}
-}
-\postauthor{
-  \end{center}
-}
- \postdate{
-  \\
-  \includegraphics[width=1.5in,height=1.5in]{figures/UiB-emblem500px_gray.png}\\
-  \end{center}
-  \newpage
-  \mbox{}
-  \vfill
-  Cover page\\
-  \emph{Beckwithia glacialis} on Snøhetta.
- }
 \makeatletter
 \makeatother
 \makeatletter
@@ -247,15 +214,69 @@
 \date{Invalid Date}
 
 \begin{document}
-\frontmatter
-\maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, borderline west={3pt}{0pt}{shadecolor}, enhanced, interior hidden, boxrule=0pt, breakable, frame hidden]}{\end{tcolorbox}}\fi
+  \frontmatter
+    \cleardoublepage
+\thispagestyle{empty}
+{\centering
+  \hbox{}\vskip 0cm plus 1fill
+  {\Huge\bfseries The title of my most excellent thesis \par}
+      \vspace{12ex}
+    {\small DISSERTATION\\   % Degree
+         SUBMITTED ON \MakeUppercase{\today}\\
+         TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
+         IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
+         OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
+         OF TULANE UNIVERSITY\\
+         FOR THE DEGREE\\
+         OF\\
+         DOCTOR OF PHILOSOPHY\\
+         BY\\ \par}
+    \vspace{12ex}
+      {\Large\bfseries Jane Doe \par}
+  \vspace{3ex}
+  %{\Large ORCID:  \par}
+  %\vskip 0cm plus 2fill
+  %{\bfseries\large Doctor of Philosophy \par}
+  %\vspace{3ex}
+  {\bfseries\large Invalid
+Date \par} %Uncomment to inclide date below author name
+  \vspace{12ex}
+  %
+  \vspace{12ex}
+  % Signature Line
+  \vfill
+  \begin{tabular}{@{}c@{\hspace{3cm}}c@{}}
+    \rule{0.4\textwidth}{0.4pt} & \rule{0.4\textwidth}{0.4pt} \\
+    Your Signature 1 & Your Signature 2 \\
+    \rule{0.4\textwidth}{0.4pt} & \rule{0.4\textwidth}{0.4pt} \\
+    Your Signature 3 & Your Signature 4 \\
+  \end{tabular}
+}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, interior hidden, boxrule=0pt, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
 
+\renewcommand*\contentsname{Table of Contents}
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+\setstretch{2}
 \mainmatter
 \bookmarksetup{startatroot}
 
 \hypertarget{acknowledgements}{%
 \chapter*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\markboth{Acknowledgements}{Acknowledgements}
+
+Thanks for all the fish.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{acknowledgements-1}{%
+\chapter*{Acknowledgements}\label{acknowledgements-1}}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 \markboth{Acknowledgements}{Acknowledgements}
