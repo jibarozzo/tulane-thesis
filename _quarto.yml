@@ -1,6 +1,9 @@
 project:
   type: book
   output-dir: docs
+
+execute:
+  echo: true # change to false to hide code
   
 book:
   title: "The title of my most excellent thesis"
@@ -22,9 +25,6 @@ book:
     - app2-tools.qmd
 
 bibliography: references.bib
-
-execute:
-  echo: true # change to false to hide code
 
 format:
   # html:
@@ -53,6 +53,7 @@ format:
     linestretch: 2.0
     fontsize: 12pt
     mainfont: Liberation Serif
+    sansfont: Liberation Serif
     papersize: a4
     template-partials:
     - before-body.tex

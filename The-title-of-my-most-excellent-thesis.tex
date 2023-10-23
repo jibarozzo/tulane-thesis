@@ -23,6 +23,7 @@
 \ifPDFTeX\else  
     % xetex/luatex font selection
   \setmainfont[]{Liberation Serif}
+  \setsansfont[]{Liberation Serif}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -252,7 +253,7 @@ Date \par} %Uncomment to inclide date below author name
     Your Signature 3 & Your Signature 4 \\
   \end{tabular}
 }
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, interior hidden, boxrule=0pt, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of Contents}
 {
