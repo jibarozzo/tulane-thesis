@@ -1,0 +1,66 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$
+\cleardoublepage
+\thispagestyle{empty}
+{\centering
+  \hbox{}\vskip 0cm plus 1fill
+  {\Huge\bfseries $title$ \par}
+  $if(subtitle)$
+    \vspace{3ex}
+    {\Large\bfseries $subtitle$ \par}
+  $endif$
+  \vspace{8ex}
+  {\small\MakeUppercase{ A Dissertation Subitted on {\today}\\
+    to the Department of Ecology and Evolutionary Biology\\  % Department and Degree stream
+    in partial FulfilLmment for the Requirements of \\
+    of the School of Science and Engineering\\ %University
+    of Tulane University\\
+    for the degree\\
+    of\\ \par}}
+  \vspace{2ex}
+    {\small\bfseries DOCTOR OF PHILOSOPHY\\ \par}
+    \vspace{2ex}
+    {\small BY\\ \par}
+  \vspace{3ex}
+  \begin{center}
+    \rule{0.4\textwidth}{0.4pt} \\
+    $for(by-author)$
+    {\normalsize\bfseries $by-author.name.literal$ \par}
+  \end{center}
+  \vspace{0ex}
+  
+  %\vspace{3ex}
+  %{\Large ORCID: $by-author.orcid$ \par}
+  %\vskip 0cm plus 2fill
+  %{\bfseries\large Doctor of Philosophy \par}
+  %\vspace{3ex}
+  %\vspace{12ex}
+  %$for(by-author.affiliations)$%
+  %$if(it.department)$%
+  %{\bfseries\large $it.department$ \par}
+  %$endif$%
+  %{\bfseries\large $it.name$ \par}
+  %$endfor$$endfor$%
+  %\vspace{12ex}
+ }
+$endif$
+
+ % Signature Lines
+\begin{flushright}
+  \vfill
+  \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+    Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+                 & Your Signature 1 \\
+                 & \rule{0.4\textwidth}{0.4pt} \\
+                 & Your Signature 2 \\
+                 & \rule{0.4\textwidth}{0.4pt} \\
+                 & Your Signature 3 \\
+                 & \rule{0.4\textwidth}{0.4pt} \\
+                 & Your Signature 4 \\
+  \end{tabular}
+\end{flushright}
+
+
+  

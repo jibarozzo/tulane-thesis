@@ -1,5 +1,6 @@
-# Results
+# Chapter 2
 
-What I found out.
-
-See [Appendix -@sec-more-results] for more detailed results
+```{r echo=FALSE}
+library("stringi")
+stri_rand_lipsum(n_paragraphs, start_lipsum = TRUE, n_paragraphs = 2)
+```

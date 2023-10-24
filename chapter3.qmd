@@ -1,3 +1,6 @@
-# Discussion
+# Chapter 3
 
-My results in context
+```{r echo=FALSE}
+library("stringi")
+stri_rand_lipsum(n_paragraphs, start_lipsum = TRUE, n_paragraphs = 2)
+```

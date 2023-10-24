@@ -1,4 +1,5 @@
 # Acknowledgements {.unnumbered}
 
-Thanks for all the fish.
-
+<!-- \tableofcontents -->
+<!-- \listoftables -->
+<!-- \listoffigures -->

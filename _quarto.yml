@@ -13,11 +13,12 @@ book:
   chapters:
     - index.qmd
     - acknowledgements.qmd         # uncomment this line to see acknowledgements in html (will appear twice in pfd)
+    - foreword.qmd
     - 0-abstract.qmd
     - 1-introduction.qmd
-    - 2-methods.qmd
-    - 3-results.qmd
-    - 4-discussion.qmd
+    - chapter1.qmd
+    - chapter2.qmd
+    - chapter3.qmd
     - 5-conclusions.qmd
     - references.qmd
   appendices:
@@ -40,10 +41,10 @@ format:
     number-sections: true
     number-depth: 2
     geometry:
-      - inner=3cm
-      - outer=4cm
-      - top=3cm
-      - bottom=4cm
+      - inner=2.54cm
+      - outer=2.54cm
+      - top=2.54cm
+      - bottom=2.54cm
       - headsep=22pt
       - headheight=11pt
       - footskip=33pt
@@ -56,48 +57,14 @@ format:
     sansfont: Liberation Serif
     papersize: a4
     template-partials:
-    - before-body.tex
-    #- toc.tex
+    - "tex/before-body.tex"
+    - "tex/_titlepage.tex"
+    - "tex/toc.tex"
+    include-in-header:
+      - text: |
+          \usepackage{array} % Include the array package
+          \renewcommand{\arraystretch}{2} % Adjust the value as needed
+#\usepackage{setspace}\spacing{1.5}
  
 editor: source
-
-
-     # header-includes:
-    #   \usepackage{titling}
-    #   \usepackage{datetime}
-    #   \usepackage{geometry}
-    #    \geometry{
-    #    a4paper,
-    #    total={170mm,257mm},
-    #    left=25mm,
-    #    top=25mm,
-    #    }
-    #   \setlength{\droptitle}{-4cm}
-    #   \preauthor{
-    #     \begin{center}
-    #      DISSERTATION\\   % Degree
-    #      SUBMITTED ON \MakeUppercase{\today}\\
-    #      TO THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY\\  % Department and Degree stream
-    #      IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
-    #      OF THE SCHOOL OF SCIENCE AND ENGINEERING\\ %University
-    #      OF TULANE UNIVERSITY\\
-    #      FOR THE DEGREE\\
-    #      OF\\
-    #      DOCTOR OF PHILOSOPHY\\
-    #      BY\\
-    #      \vspace{7mm}
-    #   }
-    #   \postauthor{
-    #     \end{center}
-    #   }
-    #    \postdate{
-    #     \\
-    #     \includegraphics[width=1.5in,height=1.5in]{figures/UiB-emblem500px_gray.png}\\
-    #     \end{center}
-    #     \newpage
-    #     \mbox{}
-    #     \vfill
-    #     Cover page\\
-    #     \emph{Beckwithia glacialis} on Snøhetta.
-    #    }
 

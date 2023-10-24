@@ -1,5 +1,8 @@
 # render thesis
 library("quarto")
+library("tinytex")
+library("stringi")
+
 
 # html
 
