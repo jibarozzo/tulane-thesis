@@ -1,3 +1,4 @@
+\pagenumbering{arabic}
 # Chapter 1
 
 ```{r echo=FALSE}

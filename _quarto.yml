@@ -14,12 +14,12 @@ book:
     - index.qmd
     - acknowledgements.qmd         # uncomment this line to see acknowledgements in html (will appear twice in pfd)
     - foreword.qmd
-    - 0-abstract.qmd
-    - 1-introduction.qmd
+    - abstract.qmd
+    - introduction.qmd
     - chapter1.qmd
     - chapter2.qmd
     - chapter3.qmd
-    - 5-conclusions.qmd
+    - conclusions.qmd
     - references.qmd
   appendices:
     - app1-resources.qmd
@@ -32,6 +32,7 @@ format:
   #   theme: cosmo
   pdf:
     documentclass: scrbook
+    classoption: ["oneside", "open=any"]
     keep-tex: true 
     toc: true
     toc-depth: 3
@@ -41,15 +42,15 @@ format:
     number-sections: true
     number-depth: 2
     geometry:
-      - inner=2.54cm
+      - inner=4cm
       - outer=2.54cm
       - top=2.54cm
       - bottom=2.54cm
-      - headsep=22pt
-      - headheight=11pt
+      - headsep=1pt
+      - headheight=1pt
       - footskip=33pt
-      - ignorehead
-      - ignorefoot
+      #- ignorehead
+      #- ignorefoot
       - heightrounded
     linestretch: 2.0
     fontsize: 12pt
@@ -64,6 +65,16 @@ format:
       - text: |
           \usepackage{array} % Include the array package
           \renewcommand{\arraystretch}{2} % Adjust the value as needed
+          \pagenumbering{gobble}
+#          \usepackage{sectsty}
+#          \usepackage{titlesec}
+#         \titleformat{\chapter}[display]
+#          {\Large\bfseries\centering}{}{0pt}{\fontsize{12}{15}\selectfont}
+#           \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+#           \titlespacing*{\section}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+#           \titlespacing*{\subsection}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+#          \sectionfont{\fontsize{12}{15}\selectfont\centering}
+#          \subsectionfont{\fontsize{12}{15}\selectfont\centering}
 #\usepackage{setspace}\spacing{1.5}
  
 editor: source
