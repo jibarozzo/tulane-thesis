@@ -1,39 +1,30 @@
-# quartothesis
+# Tulane_Quarto_Dissertation
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The quartothesis is a skeleton of a Masters Thesis in the style used by the Department of Biological Sciences, University of Bergen (and probably elsewhere). I forked this repository to adapt it to Tulane University's standards as of October 2023. Notice that the school could change their format in the future. 
+This repository is originally a fork of the [Quarto Masters Thesis](https://github.com/biostats-r/quartothesis) by the Department of Biological Sciences, University of Bergen. Agood master thesis template but not necessarily for a docotoral dissertation. I incorporated code from [Cameron Patrick's formatting tips](https://cameronpatrick.com/post/2023/07/quarto-thesis-formatting/#sec-additional-front-matter) at he University of Melbourne and  Alberto Guzman's [Quarto dissertation template](https://github.com/alberto-guzman/quarto-dissertation/tree/main) for the University of Pittsburg. The final product complies (unofficially) with the [General Guidelines for Use Preparing Theses and Dissertations](https://tulane.app.box.com/s/xxplukzuzv52f286hrvdxu4nx7l0kykp) for the School of Science and Engineering (SSE) at Tulane university. Notice SSE could change their format standards in the future. 
 
-You can view the rendered version of the thesis skeleton in [html](https://biostats-r.github.io/quartothesis/) or [pdf](https://biostats-r.github.io/quartothesis/The-title-of-my-most-excellent-thesis.pdf).
 
-You can download the repo with
+Once you have cloned or forked this repository, open the `.Rproj` file in R studio and use the commands in the `make_thesis.R` file to render the dissertation skeleton. I have only rendered the PDF version as this is all that is required for SSE, so I am not aware of any issue when rendereing the HTML.  But for day-to-day work, use the HTML version to spend less time formatting. Ideally I can set this up as a template that you can generate and start right away. Coming soon!
 
-``` r
-usethis::use_course("biostats-r/quartothesis")
-```
+Please let me know any issues. 
 
-or make a copy on GitHub by clicking the green "Use this template" button (see our [GitHub](https://biostats-r.github.io/biostats/github/index.html) tutorial on how to use your new repo).
+## Writing and Editing
 
-Once you have downloaded it, open in R studio and use the commands in the make_thesis.R file to render the thesis skeleton (start with the html version, to get the pdf version to work you will need to install extra packages). For day-to-day work, use the html version or you will spend too much time worrying about the exact placement of figures etc.
+Start by editing the ``\_quarto.yml` file. Here you need to edit the
 
-Now you can start editing the thesis.
-
-Start by editing the \_quarto.yml file. Here you need to edit the
-
--   title (line 5)
--   author (line 6)
--   chapters (line 9) if you add or remove any chapters
--   appendices (line 19) if you add or remove any appendices
+-   title (line 9)
+-   author (line 10)
+-   chapters (line 13) if you add or remove any chapters
+-   appendices (line 24) if you add or remove any appendices
 -   echo to false to hide code
--   cover figure (line 42)
--   Degree etc (line 50)
--   Description of cover figure (line 64)
 
+To change the degree (lines 15-25) and commmitee members (lines 50>) got to the `_titlepage.tex` file. You can edit using a simple text editor or in R Studio. 
 Each chapter should be a new file.
 
-index.qmd is a special chapter that makes the cover page for the html version of the thesis and is hidden in the pdf version.
+`index.qmd `is a special chapter that makes the cover page for the HTML version of the thesis and is hidden in the PDF version.
 
 R code is run in each chapter independently. This probably isn't a big problem as most of the code will be for the results chapter. If you find you need to duplicate code across multiple chapters, consider using the [targets](https://books.ropensci.org/targets/) package.
 
