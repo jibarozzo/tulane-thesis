@@ -1,3 +1,20 @@
+%Abstract Title Page
+$if(has-frontmatter)$
+  \begin{frontmatter}
+  \begin{titlepage}
+  $_abstract_title.tex()$
+  \end{titlepage}
+  \end{frontmatter}
+$else$
+  \begin{titlepage}
+  $_abstract_title.tex()$
+  \end{titlepage}
+$endif$
+
+% Abstract page
+\input{abstract.qmd}
+
+% Dissertation Title Page
 $if(has-frontmatter)$
   \begin{frontmatter}
   \begin{titlepage}
@@ -16,19 +33,17 @@ $endif$
 % Copyright page
 \input{tex/copyright.tex}
 
-% Abstract page
-%\input{tex/abstract.tex}
 
-Order of TOC, LOT, and LOF
-$if(toc)$
-\tableofcontents
-$endif$
-$if(lot)$
-\listoftables
-$endif$
-$if(lof)$
-\listoffigures
-$endif$
+% Order of TOC, LOT, and LOF
+% $if(toc)$
+% \tableofcontents
+% $endif$
+% $if(lot)$
+% \listoftables
+% $endif$
+% $if(lof)$
+% \listoffigures
+% $endif$
 
 % \let\mainmatterreal\mainmatter
 % \let\mainmatter\relax

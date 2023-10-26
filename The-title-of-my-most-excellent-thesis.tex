@@ -219,6 +219,7 @@
 \date{Invalid Date}
 
 \begin{document}
+%Abstract Title Page
   \begin{frontmatter}
   \begin{titlepage}
   \frontmatter
@@ -228,9 +229,69 @@
     \hbox{}\vskip 0cm plus 1fill
     {\Huge\bfseries The title of my most excellent thesis \par}
       \vspace{8ex}
-    {\small\MakeUppercase{ A Dissertation Subitted on {\today}\\
+    {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
       to the Department of Ecology and Evolutionary Biology\\  % Department and Degree stream
-      in partial FulfilLmment for the Requirements of \\
+      in partial Fulfillment for the Requirements of \\
+      of the School of Science and Engineering\\ %University
+      of Tulane University\\
+      for the degree\\
+      of\\ \par}}
+    \vspace{2ex}
+      {\small\bfseries DOCTOR OF PHILOSOPHY\\ \par}
+      \vspace{2ex}
+      {\small BY\\ \par}
+    \vspace{3ex}
+    \begin{center}
+      \rule{0.4\textwidth}{0.4pt} \\
+          {\normalsize\bfseries Jane Doe \par}
+    \end{center}
+    \vspace{0ex}
+    
+    %\vspace{3ex}
+    %{\Large ORCID:  \par}
+    %\vskip 0cm plus 2fill
+    %{\bfseries\large Doctor of Philosophy \par}
+    %\vspace{3ex}
+    %\vspace{12ex}
+    %%
+    %\vspace{12ex}
+   }
+
+   % Signature Lines
+  \begin{flushright}
+    \vfill
+    \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+      Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+                   & Your Signature 1 \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & Your Signature 2 \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & Your Signature 3 \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & Your Signature 4 \\
+    \end{tabular}
+  \end{flushright}
+
+
+      \end{titlepage}
+  \end{frontmatter}
+
+% Abstract page
+\input{abstract.qmd}
+
+% Dissertation Title Page
+  \begin{frontmatter}
+  \begin{titlepage}
+  \frontmatter
+  \cleardoublepage
+  \thispagestyle{empty}
+  {\centering
+    \hbox{}\vskip 0cm plus 1fill
+    {\Huge\bfseries The title of my most excellent thesis \par}
+      \vspace{8ex}
+    {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
+      to the Department of Ecology and Evolutionary Biology\\  % Department and Degree stream
+      in partial Fulfillment for the Requirements of \\
       of the School of Science and Engineering\\ %University
       of Tulane University\\
       for the degree\\
@@ -281,16 +342,14 @@
 % Copyright page
 \input{tex/copyright.tex}
 
-% Abstract page
-%\input{tex/abstract.tex}
 
-Order of TOC, LOT, and LOF
-\tableofcontents
-\listoftables
-\listoffigures
-
+% Order of TOC, LOT, and LOF
+% % \tableofcontents
+% % % \listoftables
+% % % \listoffigures
+% 
 % \let\mainmatterreal\mainmatter
-% \let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, interior hidden, frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+% \let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -323,11 +382,10 @@ Order of TOC, LOT, and LOF
 
 \bookmarksetup{startatroot}
 
-\hypertarget{abstract}{%
-\chapter*{Abstract}\label{abstract}}
-\addcontentsline{toc}{chapter}{Abstract}
+\hypertarget{section-1}{%
+\chapter{}\label{section-1}}
 
-\markboth{Abstract}{Abstract}
+Abstract
 
 This is a thesis skeleton written with quarto. Make a copy of this
 thesis repo and start to write!
@@ -363,8 +421,8 @@ See Knuth (1984) for additional discussion of literate programming.
 \pagenumbering{arabic}
 
 \begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, senectus vestibulum pretium tristique vel nibh netus fermentum odio senectus nibh donec ornare sit suspendisse varius pulvinar. Aliquet libero congue in. Platea diam taciti metus, tempus nibh. Purus libero potenti elementum lacus urna consequat. Non donec placerat, tempus efficitur in nisl in in. Ante erat neque vel eu ac non mauris in nibh magna tortor id. A facilisis aliquam nisl nec, accumsan non donec et. Habitasse nunc pellentesque varius lacus massa senectus? Dolor netus. Sed mollis nec curabitur ut pharetra. Vitae sed ligula sem orci enim congue, donec."                                                             
-[2] "Vel, ac, enim est adipiscing magna quisque bibendum ac. Lacus consequat malesuada vel malesuada sapien eu per in. Vel ut facilisis elit convallis volutpat porttitor? Diam et nisl in eleifend augue, finibus penatibus. Ipsum egestas eget vehicula sit himenaeos sed porta odio sollicitudin. Nisl felis at libero turpis, eleifend, etiam. Sed nisl turpis, sem suspendisse adipiscing ut elementum primis. Etiam sit, dictum et et rutrum. Metus vulputate facilisi, consequat purus ad. Finibus sagittis nibh proin in eu. Nisl nec in sed et, nullam eu. Venenatis in ac lacinia tincidunt nunc penatibus felis lacus sed. Suscipit, aliquet auctor magna lectus aliquam."
+[1] "Lorem ipsum dolor sit amet, cum suscipit orci fringilla! Ipsum nec nisi, hendrerit, integer neque erat quis sollicitudin eu, massa ac nunc sed. Ipsum fringilla urna suscipit eleifend vulputate. Diam nec eget amet metus eu senectus. Pulvinar vel, faucibus nec eu ut ac suspendisse erat. Vitae interdum id, sed sociosqu maecenas, augue elit consectetur lorem. Ut adipiscing dolor phasellus, himenaeos pretium faucibus odio leo! Pellentesque, libero. Nisl non ut odio lorem ipsum erat suscipit pellentesque ex nec. Fermentum lacus id dapibus conubia pretium eu malesuada."                                                                                                                                                          
+[2] "At pellentesque a nec. Porttitor augue ut ac maecenas sapien. At ut lobortis ac inceptos nibh. Quisque tempor arcu diam netus in turpis et, dolor. Ultrices mattis varius sed efficitur a amet donec, auctor ligula. Aenean lectus suscipit magna conubia ut accumsan metus vitae aptent proin, sollicitudin. Nisi sem et diam turpis cubilia montes. Imperdiet parturient, mi faucibus nascetur. Tristique magnis, maximus, montes sed, enim. Lorem magnis, velit per augue cum luctus etiam. Molestie ante ligula phasellus est eu id sed eu lobortis. Molestie sapien et magna dignissim ut ornare commodo. Lacinia massa nostra bibendum aptent maecenas, in et eget egestas felis in. Cursus porttitor netus et sollicitudin, efficitur orci."
 \end{verbatim}
 
 \bookmarksetup{startatroot}
@@ -373,8 +431,8 @@ See Knuth (1984) for additional discussion of literate programming.
 \chapter{Chapter 2}\label{chapter-2}}
 
 \begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, quis faucibus luctus nisl vitae, dapibus diam amet. Quisque in posuere inceptos nullam. Egestas ut mauris ac pharetra elementum. Morbi neque molestie velit aliquam. Justo lorem mattis sit sed quisque sit. Torquent donec dignissim vehicula ut, risus. Et ante pulvinar tempor eu, turpis leo lacinia dictumst ut cum vulputate ipsum varius. Sed, massa rutrum cursus nibh habitant felis quam cum nisl. Mauris pellentesque in."                                                                                                                                                                                                                                                                                                                                     
-[2] "Sem placerat cum sit dui hac aenean hac, euismod porta. Quis, condimentum nisl phasellus nostra praesent maximus amet augue hendrerit. Inceptos aptent nam rhoncus at pellentesque urna quam. Enim imperdiet purus commodo nullam eget ligula sodales. Turpis lacus vitae a eget, ullamcorper netus. Nec hac in in bibendum platea amet. Nam condimentum amet neque nunc consequat egestas. Ut suspendisse tempor posuere metus ut molestie, donec facilisi donec, sodales dui? Sem lacus, dignissim himenaeos sed non, nulla. Eros quam risus id cras dui lorem auctor accumsan, euismod, leo mollis orci. Leo quis ut porttitor ornare aliquet. Mauris nulla curabitur fermentum sit congue tortor ornare nisl nec orci. Eu ex, vestibulum in, in sem porttitor nec quis vestibulum non parturient."
+[1] "Lorem ipsum dolor sit amet, lorem suscipit convallis habitant, ut duis in suspendisse velit. Integer pulvinar nibh mi, maximus torquent dictum at hac. Mattis lectus nisi, in vitae nulla accumsan ac id ante, vehicula vel. Hendrerit nec a montes in integer odio, mauris ut. Magna vulputate rhoncus enim tincidunt. Non dignissim ad in nec neque, proin et. Sodales sed velit ligula non turpis dis. Aptent diam eu eget consectetur at egestas in, rutrum, tortor sed et. Pulvinar sed nec ligula sociis habitant natoque nec nec. Faucibus, sed vel auctor convallis faucibus dictumst. Commodo elementum nec nulla amet maximus cras magnis sodales pulvinar sit interdum ut."
+[2] "Eu ut et sollicitudin, cum in nostra dui. Tincidunt cum. Id vitae commodo ac dis aenean malesuada viverra sed mauris. Dui nec tempor, duis et, dui vestibulum, consectetur mauris, porttitor ullamcorper sed. Imperdiet duis suscipit sed vitae proin. Suspendisse libero morbi at et non pulvinar at iaculis. Finibus in sed, habitant et in montes gravida quis. Commodo sem metus, in placerat adipiscing eget suspendisse ut in et curabitur faucibus."                                                                                                                                                                                                                           
 \end{verbatim}
 
 \bookmarksetup{startatroot}
@@ -383,8 +441,8 @@ See Knuth (1984) for additional discussion of literate programming.
 \chapter{Chapter 3}\label{chapter-3}}
 
 \begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, imperdiet in eget lorem ut feugiat ante vitae. Eu fringilla varius vestibulum nulla tempus. Orci torquent nisl metus ut. Pharetra leo sociis libero felis nec ut et bibendum. Odio, feugiat ac augue eu etiam, enim dictum nam. Sem vel arcu mattis blandit semper in sollicitudin risus lobortis cursus. Tortor viverra. Himenaeos ac cum adipiscing parturient! Accumsan maximus rhoncus lacus volutpat, congue litora tempor fermentum enim. Amet sem aliquam, ac efficitur eros erat mattis ut volutpat finibus quisque. Ut et ipsum eleifend quisque libero nisi a sed luctus sem rutrum at. Vulputate erat curabitur semper non etiam."
-[2] "Etiam non ornare nec, vitae imperdiet, integer sapien vitae ut cras mauris ut id. Vel, dis diam curabitur rhoncus sed mauris. Dolor magnis porta, in pharetra velit sed eu cum. Parturient tortor nullam imperdiet etiam nascetur nisl rhoncus quam. Nisl eget risus libero, nec consequat leo. Sit gravida vitae. Feugiat erat, montes fermentum efficitur nec, eros. Sapien volutpat felis. Facilisis integer, tellus sociis, sit placerat."                                                                                                                                                                                                                           
+[1] "Lorem ipsum dolor sit amet, parturient aenean ut pretium erat ut et eu in posuere. Et dictumst viverra nunc! Odio class laoreet est senectus vitae ac nam lacus. Consequat sed vel eu tincidunt non varius sed. Interdum mauris tincidunt ex arcu aenean nunc pellentesque. Nostra tempus ac, quam. In purus commodo magna. Metus sed ipsum."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+[2] "Sit ut. A porttitor aliquet lacus. Id urna ac amet ut dui class varius lacinia. Torquent nullam elementum non arcu nulla pharetra libero aliquam magnis aptent, mauris aenean. Nulla pulvinar id quis tincidunt. Condimentum sed. Eget malesuada, quam eu montes et, dui condimentum tristique auctor dapibus augue congue sem. Pharetra facilisis vehicula nulla mollis nunc in sapien risus vivamus, nostra lectus. Faucibus eu class sit. Ornare sociis nunc in phasellus in ac mi nulla sociosqu per lorem donec. Ipsum, litora in suscipit leo nisl torquent tincidunt magna. Ad et, interdum ut lacus. Dui orci pharetra sed. Tellus dictum cras risus sollicitudin adipiscing interdum in. Augue, in porttitor quis ut ligula quam maximus eu sollicitudin cursus. Pulvinar eget, sed est vitae convallis ridiculus dignissim class."
 \end{verbatim}
 
 \bookmarksetup{startatroot}
