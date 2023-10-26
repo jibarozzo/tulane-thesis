@@ -4,7 +4,7 @@
 %
 \documentclass[
   12pt,
-  a4paper,
+  letterpaper,
   oneside,
   open=any]{scrbook}
 
@@ -23,8 +23,8 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
-  \setmainfont[]{Liberation Serif}
-  \setsansfont[]{Liberation Serif}
+  \setmainfont[]{TeX Gyre Termes}
+  \setsansfont[]{TeX Gyre Termes}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -43,7 +43,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[inner=4cm,outer=2.54cm,top=2.54cm,bottom=2.54cm,headsep=1pt,headheight=1pt,footskip=33pt,heightrounded]{geometry}
+\usepackage[inner=2in,outer=1in,top=1in,bottom=1in,headsep=1pt,headheight=1pt,footskip=33pt,heightrounded]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{2}
 % Make \paragraph and \subparagraph free-standing
@@ -147,7 +147,20 @@
 
 \usepackage{array} % Include the array package
 \renewcommand{\arraystretch}{2} % Adjust the value as needed
+\usepackage{fancyhdr}
+\pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
+\renewcommand{\headrulewidth}{0pt} % Remove header rule
 \pagenumbering{gobble}
+\fancyhf{} % Clear header and footer
+\fancyhead[R]{\thepage} % Page number in the top-right corner
+\usepackage{sectsty}
+\usepackage{titlesec}
+\titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
+\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\sectionfont{\fontsize{24}{20}\selectfont\flushleft}
+\subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
 \makeatletter
 \makeatother
 \makeatletter
@@ -226,7 +239,7 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \hbox{}\vskip 0cm plus 1fill
+    \vskip 1cm
     {\Huge\bfseries The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
@@ -277,7 +290,7 @@
   \end{frontmatter}
 
 % Abstract page
-\input{abstract.qmd}
+\input{tex/abstract.tex}
 
 % Dissertation Title Page
   \begin{frontmatter}
@@ -286,7 +299,7 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \hbox{}\vskip 0cm plus 1fill
+    \vskip 1cm
     {\Huge\bfseries The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
@@ -340,16 +353,19 @@
 %\input{tex/comittee.tex}
 
 % Copyright page
+\pagestyle{plain}
+\begin{center}
 \input{tex/copyright.tex}
+\end{center}
 
 
 % Order of TOC, LOT, and LOF
-% % \tableofcontents
-% % % \listoftables
-% % % \listoffigures
-% 
-% \let\mainmatterreal\mainmatter
-% \let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\tableofcontents
+\listoftables
+\listoffigures
+
+\let\mainmatterreal\mainmatter
+\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, breakable, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -372,6 +388,30 @@
 
 \markboth{Acknowledgements}{Acknowledgements}
 
+\tableofcontents
+\listoftables
+\listoffigures
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+vestibulum vehicula consequat. Pellentesque consectetur dignissim
+aliquam. Maecenas in tellus sollicitudin, pretium dui a, aliquam nulla.
+Integer est mauris, ultrices vel blandit at, rutrum molestie orci. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
+a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
+odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
+Aliquam quis magna quis augue ornare ultrices.
+
+Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
+mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
+lacus. Aenean iaculis aliquet augue, eu suscipit justo volutpat eget.
+Suspendisse potenti. Praesent tempor tortor metus, sed interdum purus
+eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
+pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
+eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
+ullamcorper.
+
 \bookmarksetup{startatroot}
 
 \hypertarget{foreword}{%
@@ -380,17 +420,25 @@
 
 \markboth{Foreword}{Foreword}
 
-\bookmarksetup{startatroot}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+vestibulum vehicula consequat. Pellentesque consectetur dignissim
+aliquam. Maecenas in tellus sollicitudin, pretium dui a, aliquam nulla.
+Integer est mauris, ultrices vel blandit at, rutrum molestie orci. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
+a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
+odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
+Aliquam quis magna quis augue ornare ultrices.
 
-\hypertarget{section-1}{%
-\chapter{}\label{section-1}}
-
-Abstract
-
-This is a thesis skeleton written with quarto. Make a copy of this
-thesis repo and start to write!
-
-Make a new paragraph by leaving a blank line.
+Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
+mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
+lacus. Aenean iaculis aliquet augue, eu suscipit justo volutpat eget.
+Suspendisse potenti. Praesent tempor tortor metus, sed interdum purus
+eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
+pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
+eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
+ullamcorper.
 
 \bookmarksetup{startatroot}
 
@@ -418,32 +466,75 @@ See Knuth (1984) for additional discussion of literate programming.
 \hypertarget{chapter-1}{%
 \chapter{Chapter 1}\label{chapter-1}}
 
-\pagenumbering{arabic}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+vestibulum vehicula consequat. Pellentesque consectetur dignissim
+aliquam. Maecenas in tellus sollicitudin, pretium dui a, aliquam nulla.
+Integer est mauris, ultrices vel blandit at, rutrum molestie orci. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
+a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
+odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
+Aliquam quis magna quis augue ornare ultrices.
 
-\begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, cum suscipit orci fringilla! Ipsum nec nisi, hendrerit, integer neque erat quis sollicitudin eu, massa ac nunc sed. Ipsum fringilla urna suscipit eleifend vulputate. Diam nec eget amet metus eu senectus. Pulvinar vel, faucibus nec eu ut ac suspendisse erat. Vitae interdum id, sed sociosqu maecenas, augue elit consectetur lorem. Ut adipiscing dolor phasellus, himenaeos pretium faucibus odio leo! Pellentesque, libero. Nisl non ut odio lorem ipsum erat suscipit pellentesque ex nec. Fermentum lacus id dapibus conubia pretium eu malesuada."                                                                                                                                                          
-[2] "At pellentesque a nec. Porttitor augue ut ac maecenas sapien. At ut lobortis ac inceptos nibh. Quisque tempor arcu diam netus in turpis et, dolor. Ultrices mattis varius sed efficitur a amet donec, auctor ligula. Aenean lectus suscipit magna conubia ut accumsan metus vitae aptent proin, sollicitudin. Nisi sem et diam turpis cubilia montes. Imperdiet parturient, mi faucibus nascetur. Tristique magnis, maximus, montes sed, enim. Lorem magnis, velit per augue cum luctus etiam. Molestie ante ligula phasellus est eu id sed eu lobortis. Molestie sapien et magna dignissim ut ornare commodo. Lacinia massa nostra bibendum aptent maecenas, in et eget egestas felis in. Cursus porttitor netus et sollicitudin, efficitur orci."
-\end{verbatim}
+Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
+mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
+lacus. Aenean iaculis aliquet augue, eu suscipit justo volutpat eget.
+Suspendisse potenti. Praesent tempor tortor metus, sed interdum purus
+eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
+pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
+eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
+ullamcorper.
 
 \bookmarksetup{startatroot}
 
 \hypertarget{chapter-2}{%
 \chapter{Chapter 2}\label{chapter-2}}
 
-\begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, lorem suscipit convallis habitant, ut duis in suspendisse velit. Integer pulvinar nibh mi, maximus torquent dictum at hac. Mattis lectus nisi, in vitae nulla accumsan ac id ante, vehicula vel. Hendrerit nec a montes in integer odio, mauris ut. Magna vulputate rhoncus enim tincidunt. Non dignissim ad in nec neque, proin et. Sodales sed velit ligula non turpis dis. Aptent diam eu eget consectetur at egestas in, rutrum, tortor sed et. Pulvinar sed nec ligula sociis habitant natoque nec nec. Faucibus, sed vel auctor convallis faucibus dictumst. Commodo elementum nec nulla amet maximus cras magnis sodales pulvinar sit interdum ut."
-[2] "Eu ut et sollicitudin, cum in nostra dui. Tincidunt cum. Id vitae commodo ac dis aenean malesuada viverra sed mauris. Dui nec tempor, duis et, dui vestibulum, consectetur mauris, porttitor ullamcorper sed. Imperdiet duis suscipit sed vitae proin. Suspendisse libero morbi at et non pulvinar at iaculis. Finibus in sed, habitant et in montes gravida quis. Commodo sem metus, in placerat adipiscing eget suspendisse ut in et curabitur faucibus."                                                                                                                                                                                                                           
-\end{verbatim}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+vestibulum vehicula consequat. Pellentesque consectetur dignissim
+aliquam. Maecenas in tellus sollicitudin, pretium dui a, aliquam nulla.
+Integer est mauris, ultrices vel blandit at, rutrum molestie orci. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
+a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
+odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
+Aliquam quis magna quis augue ornare ultrices.
+
+Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
+mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
+lacus. Aenean iaculis aliquet augue, eu suscipit justo volutpat eget.
+Suspendisse potenti. Praesent tempor tortor metus, sed interdum purus
+eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
+pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
+eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
+ullamcorper.
 
 \bookmarksetup{startatroot}
 
 \hypertarget{chapter-3}{%
 \chapter{Chapter 3}\label{chapter-3}}
 
-\begin{verbatim}
-[1] "Lorem ipsum dolor sit amet, parturient aenean ut pretium erat ut et eu in posuere. Et dictumst viverra nunc! Odio class laoreet est senectus vitae ac nam lacus. Consequat sed vel eu tincidunt non varius sed. Interdum mauris tincidunt ex arcu aenean nunc pellentesque. Nostra tempus ac, quam. In purus commodo magna. Metus sed ipsum."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-[2] "Sit ut. A porttitor aliquet lacus. Id urna ac amet ut dui class varius lacinia. Torquent nullam elementum non arcu nulla pharetra libero aliquam magnis aptent, mauris aenean. Nulla pulvinar id quis tincidunt. Condimentum sed. Eget malesuada, quam eu montes et, dui condimentum tristique auctor dapibus augue congue sem. Pharetra facilisis vehicula nulla mollis nunc in sapien risus vivamus, nostra lectus. Faucibus eu class sit. Ornare sociis nunc in phasellus in ac mi nulla sociosqu per lorem donec. Ipsum, litora in suscipit leo nisl torquent tincidunt magna. Ad et, interdum ut lacus. Dui orci pharetra sed. Tellus dictum cras risus sollicitudin adipiscing interdum in. Augue, in porttitor quis ut ligula quam maximus eu sollicitudin cursus. Pulvinar eget, sed est vitae convallis ridiculus dignissim class."
-\end{verbatim}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+vestibulum vehicula consequat. Pellentesque consectetur dignissim
+aliquam. Maecenas in tellus sollicitudin, pretium dui a, aliquam nulla.
+Integer est mauris, ultrices vel blandit at, rutrum molestie orci. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
+a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
+odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
+Aliquam quis magna quis augue ornare ultrices.
+
+Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
+mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
+lacus. Aenean iaculis aliquet augue, eu suscipit justo volutpat eget.
+Suspendisse potenti. Praesent tempor tortor metus, sed interdum purus
+eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
+pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
+eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
+ullamcorper.
 
 \bookmarksetup{startatroot}
 

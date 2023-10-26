@@ -11,16 +11,16 @@ book:
   date: "`r format(Sys.Date(), %B %d, %Y)`"
   #date-format: "MMMM YYYY"
   chapters:
-    - index.qmd
     - acknowledgements.qmd         # uncomment this line to see acknowledgements in html (will appear twice in pfd)
     - foreword.qmd
-    - abstract.qmd
+    #- abstract.qmd
     - introduction.qmd
     - chapter1.qmd
     - chapter2.qmd
     - chapter3.qmd
     - conclusions.qmd
     - references.qmd
+    - index.qmd
   appendices:
     - app1-resources.qmd
     - app2-tools.qmd
@@ -42,21 +42,21 @@ format:
     number-sections: true
     number-depth: 2
     geometry:
-      - inner=4cm
-      - outer=2.54cm
-      - top=2.54cm
-      - bottom=2.54cm
+      - inner=2in
+      - outer=1in
+      - top=1in
+      - bottom=1in
       - headsep=1pt
       - headheight=1pt
       - footskip=33pt
       #- ignorehead
       #- ignorefoot
       - heightrounded
-    linestretch: 2.0
+    linestretch: 2.0 # double spacing
     fontsize: 12pt
-    mainfont: Liberation Serif
-    sansfont: Liberation Serif
-    papersize: a4
+    mainfont: TeX Gyre Termes #Alternative to Times New Roman
+    sansfont: TeX Gyre Termes #Another option is Liberation Serif
+    papersize: letter
     template-partials:
     - "tex/before-body.tex"
     - "tex/_abstract_title.tex"
@@ -66,17 +66,20 @@ format:
       - text: |
           \usepackage{array} % Include the array package
           \renewcommand{\arraystretch}{2} % Adjust the value as needed
+          \usepackage{fancyhdr}
+          \pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
+          \renewcommand{\headrulewidth}{0pt} % Remove header rule
           \pagenumbering{gobble}
-#          \usepackage{sectsty}
-#          \usepackage{titlesec}
-#         \titleformat{\chapter}[display]
-#          {\Large\bfseries\centering}{}{0pt}{\fontsize{12}{15}\selectfont}
-#           \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-#           \titlespacing*{\section}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-#           \titlespacing*{\subsection}{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-#          \sectionfont{\fontsize{12}{15}\selectfont\centering}
-#          \subsectionfont{\fontsize{12}{15}\selectfont\centering}
-#\usepackage{setspace}\spacing{1.5}
- 
+          \fancyhf{} % Clear header and footer
+          \fancyhead[R]{\thepage} % Page number in the top-right corner
+          \usepackage{sectsty}
+          \usepackage{titlesec}
+          \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
+          \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+          \titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+          \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+          \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
+          \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
+
 editor: source
 

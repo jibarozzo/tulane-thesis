@@ -12,7 +12,7 @@ $else$
 $endif$
 
 % Abstract page
-\input{abstract.qmd}
+\input{tex/abstract.tex}
 
 % Dissertation Title Page
 $if(has-frontmatter)$
@@ -31,19 +31,22 @@ $endif$
 %\input{tex/comittee.tex}
 
 % Copyright page
+\pagestyle{plain}
+\begin{center}
 \input{tex/copyright.tex}
+\end{center}
 
 
 % Order of TOC, LOT, and LOF
-% $if(toc)$
-% \tableofcontents
-% $endif$
-% $if(lot)$
-% \listoftables
-% $endif$
-% $if(lof)$
-% \listoffigures
-% $endif$
+$if(toc)$
+\tableofcontents
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
 
-% \let\mainmatterreal\mainmatter
-% \let\mainmatter\relax
+\let\mainmatterreal\mainmatter
+\let\mainmatter\relax
