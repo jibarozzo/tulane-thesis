@@ -66,12 +66,6 @@ format:
       - text: |
           \usepackage{array} % Include the array package
           \renewcommand{\arraystretch}{2} % Adjust the value as needed
-          \usepackage{fancyhdr}
-          \pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
-          \renewcommand{\headrulewidth}{0pt} % Remove header rule
-          \pagenumbering{gobble}
-          \fancyhf{} % Clear header and footer
-          \fancyhead[R]{\thepage} % Page number in the top-right corner
           \usepackage{sectsty}
           \usepackage{titlesec}
           \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
@@ -80,6 +74,13 @@ format:
           \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
           \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
           \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
-
+    include-before-body:
+      - text: |
+          \usepackage{fancyhdr}
+          \pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
+          \renewcommand{\headrulewidth}{0pt} % Remove header rule
+          \pagenumbering{gobble}
+          \fancyhf{} % Clear header and footer
+          \fancyhead[R]{\thepage} % Page number in the top-right corner
 editor: source
 
