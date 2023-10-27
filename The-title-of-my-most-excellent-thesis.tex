@@ -146,15 +146,19 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \pagenumbering{goobledegook}
+\pagenumbering{roman}
+\usepackage{scrlayer-scrpage}
+\ohead{\pagemark}      % Page number in the outer (right) header
+
 \usepackage{array} % Include the array package
 \renewcommand{\arraystretch}{2} % Adjust the value as needed
-\usepackage{fancyhdr}
+
 \usepackage{sectsty}
 \usepackage{titlesec}
 \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
-\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{5ex plus .2ex}
-\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{5ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{5ex plus .2ex}
+\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{6ex plus .2ex}
+\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
 \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
 \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
 \makeatletter
@@ -286,6 +290,8 @@
   \end{frontmatter}
 
 % Abstract page
+\cleardoublepage
+\thispagestyle{empty}
 \input{tex/abstract.tex}
 
 % Dissertation Title Page
@@ -349,7 +355,7 @@
 %\input{tex/comittee.tex}
 
 % Copyright page
-\pagestyle{plain}
+\pagestyle{empty}
 \begin{center}
 \input{tex/copyright.tex}
 \end{center}
@@ -361,13 +367,7 @@
 % % % \listoffigures
 % 
 \let\mainmatterreal\mainmatter
-\let\mainmatter\relax\pagenumbering{roman}
-\pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
-\renewcommand{\headrulewidth}{0pt} % Remove header rule
-\fancyhf{} % Clear header and footer
-\fancyhead[R]{\thepage} % Page number in the top-right corner
-
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, sharp corners, borderline west={3pt}{0pt}{shadecolor}, frame hidden, interior hidden, breakable]}{\end{tcolorbox}}\fi
+\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, interior hidden, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -379,13 +379,15 @@
 \hypertarget{section}{%
 \chapter{}\label{section}}
 
+\thispagestyle{empty}
+
 \bookmarksetup{startatroot}
 
-\hypertarget{acknowledgements}{%
-\chapter*{Acknowledgements}\label{acknowledgements}}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+\hypertarget{acknowledgement}{%
+\chapter*{Acknowledgement}\label{acknowledgement}}
+\addcontentsline{toc}{chapter}{Acknowledgement}
 
-\markboth{Acknowledgements}{Acknowledgements}
+\markboth{Acknowledgement}{Acknowledgement}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
 vestibulum vehicula consequat. Pellentesque consectetur dignissim
