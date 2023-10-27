@@ -45,7 +45,7 @@
 \usepackage{xcolor}
 \usepackage[inner=2in,outer=1in,top=1in,bottom=1in,headsep=1pt,headheight=1pt,footskip=33pt,heightrounded]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
@@ -145,20 +145,16 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\pagenumbering{goobledegook}
 \usepackage{array} % Include the array package
 \renewcommand{\arraystretch}{2} % Adjust the value as needed
 \usepackage{fancyhdr}
-\pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
-\renewcommand{\headrulewidth}{0pt} % Remove header rule
-\pagenumbering{gobble}
-\fancyhf{} % Clear header and footer
-\fancyhead[R]{\thepage} % Page number in the top-right corner
 \usepackage{sectsty}
 \usepackage{titlesec}
 \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
-\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{5ex plus .2ex}
+\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{5ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{5ex plus .2ex}
 \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
 \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
 \makeatletter
@@ -360,12 +356,18 @@
 
 
 % Order of TOC, LOT, and LOF
-\tableofcontents
-\listoftables
-\listoffigures
-
+% % \tableofcontents
+% % % \listoftables
+% % % \listoffigures
+% 
 \let\mainmatterreal\mainmatter
-\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, breakable, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
+\let\mainmatter\relax\pagenumbering{roman}
+\pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
+\renewcommand{\headrulewidth}{0pt} % Remove header rule
+\fancyhf{} % Clear header and footer
+\fancyhead[R]{\thepage} % Page number in the top-right corner
+
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, sharp corners, borderline west={3pt}{0pt}{shadecolor}, frame hidden, interior hidden, breakable]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -375,10 +377,7 @@
 \bookmarksetup{startatroot}
 
 \hypertarget{section}{%
-\chapter*{}\label{section}}
-\addcontentsline{toc}{chapter}{}
-
-\markboth{}{}
+\chapter{}\label{section}}
 
 \bookmarksetup{startatroot}
 
@@ -387,10 +386,6 @@
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 \markboth{Acknowledgements}{Acknowledgements}
-
-\tableofcontents
-\listoftables
-\listoffigures
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
 vestibulum vehicula consequat. Pellentesque consectetur dignissim
@@ -439,6 +434,10 @@ eleifend id. Vestibulum id malesuada elit. Mauris finibus sem sapien, id
 pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
 eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
 ullamcorper.
+
+\tableofcontents
+\listoftables
+\listoffigures
 
 \bookmarksetup{startatroot}
 
