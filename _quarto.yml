@@ -31,7 +31,7 @@ format:
   # html:
   #   theme: cosmo
   pdf:
-    documentclass: scrbook
+    documentclass: scrreport
     classoption: ["oneside", "open=any"]
     keep-tex: true 
     toc: true
@@ -69,10 +69,20 @@ format:
     #   - "lua/pagenumber.lua"
     include-in-header:
      - text: |
-          \usepackage[manualmark]{scrlayer-scrpage}
-          \pagenumbering{gooble}
-          \rohead[]{\pagemark}      % Page number in the outer (right) header
-          \setlength{\parindent}{2em}
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancypagestyle{plain}{%
+            \fancyhf{} % clear all header and footer fields
+            \fancyhead[R]{\thepage} % page number in top right
+            \renewcommand{\headrulewidth}{0pt}
+            \renewcommand{\footrulewidth}{0pt}
+          }
+
+          
+# \usepackage[manualmark]{scrlayer-scrpage}
+          # \pagenumbering{gooble}
+          # \rohead[]{\pagemark}      % Page number in the outer (right) header
+          # \setlength{\parindent}{2em}
 # \usepackage{array} % Include the array package
 # \renewcommand{\arraystretch}{2} % Adjust the value as needed
 

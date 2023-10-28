@@ -1,12 +1,13 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
   12pt,
   letterpaper,
   oneside,
-  open=any]{scrbook}
+  open=any]{scrreport}
 
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
@@ -135,10 +136,14 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage[manualmark]{scrlayer-scrpage}
-\pagenumbering{gooble}
-\rohead[]{\pagemark}      % Page number in the outer (right) header
-\setlength{\parindent}{2em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[R]{\thepage} % page number in top right
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 \makeatletter
 \makeatother
 \makeatletter
@@ -202,7 +207,11 @@
 \hypersetup{
   pdftitle={The title of my most excellent thesis},
   pdfauthor={Jane Doe},
-  hidelinks,
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
 \title{The title of my most excellent thesis}
@@ -211,9 +220,7 @@
 
 \begin{document}
 %Abstract Title Page
-  \begin{frontmatter}
   \begin{titlepage}
-  \frontmatter
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
@@ -265,7 +272,6 @@
 
 
       \end{titlepage}
-  \end{frontmatter}
 
 % Abstract page
 \cleardoublepage
@@ -273,9 +279,7 @@
 \input{tex/abstract.tex}
 
 % Dissertation Title Page
-  \begin{frontmatter}
   \begin{titlepage}
-  \frontmatter
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
@@ -327,7 +331,6 @@
 
 
       \end{titlepage}
-  \end{frontmatter}
 
 % Committee page
 %\input{tex/comittee.tex}
@@ -345,13 +348,13 @@
 % % % \listoffigures
 % 
 \let\mainmatterreal\mainmatter
-\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, boxrule=0pt, enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, frame hidden]}{\end{tcolorbox}}\fi
+\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, sharp corners, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, breakable, frame hidden, enhanced]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
-    \setcounter{tocdepth}{2}
+    \hypersetup{linkcolor=}
+  \setcounter{tocdepth}{2}
   \renewcommand*\listfigurename{List of figures}
 \renewcommand*\listtablename{List of tables}\setstretch{2}
-\mainmatter
 \bookmarksetup{startatroot}
 
 \hypertarget{section}{%
@@ -562,6 +565,5 @@ Some results that wouldn't fit into the main thesis
 Something else
 
 
-\backmatter
 
 \end{document}
