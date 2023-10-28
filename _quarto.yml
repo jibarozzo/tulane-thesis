@@ -49,26 +49,30 @@ format:
       - headsep=1pt
       - headheight=1pt
       - footskip=33pt
-      #- ignorehead
-      #- ignorefoot
+      - ignorehead
+      - ignorefoot
       - heightrounded
+    indent: true
     linestretch: 2.0 # double spacing
     fontsize: 12pt
     mainfont: TeX Gyre Termes #Alternative to Times New Roman
     sansfont: TeX Gyre Termes #Another option is Liberation Serif
     papersize: letter
+    pagenumbering: [location=header, right]
     template-partials:
     - "tex/before-body.tex"
     - "tex/_abstract_title.tex"
     - "tex/_titlepage.tex"
     - "tex/toc.tex"
+    #- "tex/pandoc.tex"
+    # filters:
+    #   - "lua/pagenumber.lua"
     include-in-header:
-      - text: |
-          \pagenumbering{goobledegook}
-          \pagenumbering{roman}
-          \usepackage{scrlayer-scrpage}
-          \rohead{\pagemark}      % Page number in the outer (right) header
-
+     - text: |
+          \usepackage[manualmark]{scrlayer-scrpage}
+          \pagenumbering{gooble}
+          \rohead[]{\pagemark}      % Page number in the outer (right) header
+          \setlength{\parindent}{2em}
 # \usepackage{array} % Include the array package
 # \renewcommand{\arraystretch}{2} % Adjust the value as needed
 
@@ -80,13 +84,13 @@ format:
 #           \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
 #           \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
 #           \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
-# # include-before-body:
-    #   - text: |
-    #       \pagenumbering{roman}
-    #       \pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
-    #       \renewcommand{\headrulewidth}{0pt} % Remove header rule
-    #       \fancyhf{} % Clear header and footer
-    #       \fancyhead[R]{\thepage} % Page number in the top-right corner
+#    include-before-body:
+#      - text: |
+#          \pagenumbering{roman}
+#          \pagestyle{fancy}                     % Enable custom headers and footers
+#          \renewcommand{\headrulewidth}{0pt}    % Remove header rule
+#          \fancyhf{}                            % Clear header and footer
+#          \fancyhead[R]{\thepage} % Page number in the top-right corner
     #       
     #       # \renewcommand{\headrulewidth}{0pt} % Remove header rule
 editor: source
