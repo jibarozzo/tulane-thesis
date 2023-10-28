@@ -67,20 +67,20 @@ format:
           \pagenumbering{goobledegook}
           \pagenumbering{roman}
           \usepackage{scrlayer-scrpage}
-          \ohead{\pagemark}      % Page number in the outer (right) header
+          \rohead{\pagemark}      % Page number in the outer (right) header
 
-          \usepackage{array} % Include the array package
-          \renewcommand{\arraystretch}{2} % Adjust the value as needed
+# \usepackage{array} % Include the array package
+# \renewcommand{\arraystretch}{2} % Adjust the value as needed
 
-          \usepackage{sectsty}
-          \usepackage{titlesec}
-          \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
-          \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{6ex plus .2ex}
-          \titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
-          \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
-          \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
-          \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
-# include-before-body:
+# \usepackage{sectsty}
+#           \usepackage{titlesec}
+#           \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
+#           \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{6ex plus .2ex}
+#           \titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
+#           \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
+#           \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
+#           \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
+# # include-before-body:
     #   - text: |
     #       \pagenumbering{roman}
     #       \pagestyle{fancy} % Enable custom headers and footers, AKA Upper right pagenumbers
