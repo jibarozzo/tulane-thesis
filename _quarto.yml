@@ -41,7 +41,7 @@ format:
     lof: true
     lot: true
     number-sections: true
-    number-offset: 1
+    number-offset: 3
     number-depth: 3
     geometry:
       - inner=2in
@@ -68,8 +68,9 @@ format:
     include-in-header:
      - text: |
          \usepackage{fancyhdr}
+         \setstretch{2.0}
          \usepackage{array} % Include the array package
-         \renewcommand{\arraystretch}{2} % Adjust the value as needed
+         \renewcommand{\arraystretch}{0.75} % Adjust the value as needed
          \usepackage{sectsty}
          \usepackage{titlesec}
          \titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
