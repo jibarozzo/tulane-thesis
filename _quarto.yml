@@ -58,7 +58,6 @@ format:
     mainfont: TeX Gyre Termes #Alternative to Times New Roman
     sansfont: TeX Gyre Termes #Another option is Liberation Serif
     papersize: letter
-    pagenumbering: [location=header, right]
     template-partials:
     - "tex/before-body.tex"
     - "tex/_abstract_title.tex"
@@ -77,6 +76,13 @@ format:
             \renewcommand{\headrulewidth}{0pt}
             \renewcommand{\footrulewidth}{0pt}
           }
+# include-before-body:
+    #  - text: |
+    #       \pagenumbering{roman}
+    #       \fancypagestyle{plain}{%
+    #           \fancyhf{} % clear all header and footer fields
+    #           \fancyfoot[C]{\thepage} % page number in center of footer
+    #       }
 
           
 # \usepackage[manualmark]{scrlayer-scrpage}
@@ -94,14 +100,7 @@ format:
 #           \titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{6ex plus .2ex}
 #           \sectionfont{\fontsize{24}{20}\selectfont\flushleft}
 #           \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
-#    include-before-body:
-#      - text: |
-#          \pagenumbering{roman}
-#          \pagestyle{fancy}                     % Enable custom headers and footers
-#          \renewcommand{\headrulewidth}{0pt}    % Remove header rule
-#          \fancyhf{}                            % Clear header and footer
-#          \fancyhead[R]{\thepage} % Page number in the top-right corner
-    #       
+
     #       # \renewcommand{\headrulewidth}{0pt} % Remove header rule
 editor: source
 
