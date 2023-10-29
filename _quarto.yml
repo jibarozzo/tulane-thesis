@@ -4,7 +4,8 @@ project:
 
 execute:
   echo: true # change to false to hide code
-  
+editor: source
+
 book:
   title: "The title of my most excellent thesis"
   author: "Jane Doe"
@@ -31,7 +32,7 @@ format:
   # html:
   #   theme: cosmo
   pdf:
-    documentclass: scrreport
+    documentclass: scrbook
     classoption: ["oneside", "open=any"]
     keep-tex: true 
     toc: true
@@ -64,27 +65,25 @@ format:
     - "tex/_titlepage.tex"
     - "tex/toc.tex"
     #- "tex/pandoc.tex"
-    # filters:
-    #   - "lua/pagenumber.lua"
     include-in-header:
-     - text: |
-          \usepackage{fancyhdr}
-          \pagestyle{fancy}
-          \fancypagestyle{plain}{%
+    - text: |
+        \usepackage{fancyhdr}
+        \fancypagestyle{plain}{%
             \fancyhf{} % clear all header and footer fields
             \fancyhead[R]{\thepage} % page number in top right
             \renewcommand{\headrulewidth}{0pt}
             \renewcommand{\footrulewidth}{0pt}
+         }
+        \usepackage{array} % Include the array package
+        \renewcommand{\arraystretch}{2} % Adjust the value as needed
+    include-before-body:
+    - text: |
+         \pagenumbering{roman}
+         \fancypagestyle{plain}{%
+             \fancyhf{} % clear all header and footer fields
+             \fancyfoot[C]{\thepage} % page number in center of footer
           }
-# include-before-body:
-    #  - text: |
-    #       \pagenumbering{roman}
-    #       \fancypagestyle{plain}{%
-    #           \fancyhf{} % clear all header and footer fields
-    #           \fancyfoot[C]{\thepage} % page number in center of footer
-    #       }
 
-          
 # \usepackage[manualmark]{scrlayer-scrpage}
           # \pagenumbering{gooble}
           # \rohead[]{\pagemark}      % Page number in the outer (right) header
@@ -102,5 +101,5 @@ format:
 #           \subsectionfont{\fontsize{24}{20}\selectfont\flushleft}
 
     #       # \renewcommand{\headrulewidth}{0pt} % Remove header rule
-editor: source
+
 

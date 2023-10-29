@@ -1,13 +1,12 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
   12pt,
   letterpaper,
   oneside,
-  open=any]{scrreport}
+  open=any]{scrbook}
 
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
@@ -137,13 +136,14 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 \fancypagestyle{plain}{%
-  \fancyhf{} % clear all header and footer fields
-  \fancyhead[R]{\thepage} % page number in top right
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[R]{\thepage} % page number in top right
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+ }
+\usepackage{array} % Include the array package
+\renewcommand{\arraystretch}{2} % Adjust the value as needed
 \makeatletter
 \makeatother
 \makeatletter
@@ -207,11 +207,7 @@
 \hypersetup{
   pdftitle={The title of my most excellent thesis},
   pdfauthor={Jane Doe},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
+  hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
 \title{The title of my most excellent thesis}
@@ -220,7 +216,9 @@
 
 \begin{document}
 %Abstract Title Page
+  \begin{frontmatter}
   \begin{titlepage}
+  \frontmatter
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
@@ -272,6 +270,7 @@
 
 
       \end{titlepage}
+  \end{frontmatter}
 
 % Abstract page
 \cleardoublepage
@@ -279,7 +278,9 @@
 \input{tex/abstract.tex}
 
 % Dissertation Title Page
+  \begin{frontmatter}
   \begin{titlepage}
+  \frontmatter
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
@@ -331,6 +332,7 @@
 
 
       \end{titlepage}
+  \end{frontmatter}
 
 % Committee page
 %\input{tex/comittee.tex}
@@ -348,13 +350,19 @@
 % % % \listoffigures
 % 
 \let\mainmatterreal\mainmatter
-\let\mainmatter\relax\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, sharp corners, enhanced, frame hidden]}{\end{tcolorbox}}\fi
+\let\mainmatter\relax\pagenumbering{roman}
+\fancypagestyle{plain}{%
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[C]{\thepage} % page number in center of footer
+ }
+
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, breakable, sharp corners]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
-    \hypersetup{linkcolor=}
-  \setcounter{tocdepth}{2}
+    \setcounter{tocdepth}{2}
   \renewcommand*\listfigurename{List of figures}
 \renewcommand*\listtablename{List of tables}\setstretch{2}
+\mainmatter
 \bookmarksetup{startatroot}
 
 \hypertarget{section}{%
@@ -426,6 +434,12 @@ ullamcorper.
 \chapter{Introduction}\label{introduction}}
 
 \pagenumbering{arabic}
+\fancypagestyle{plain}{%
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[R]{\thepage} % page number in top right
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+ }
 
 This is a book created from markdown and executable code.
 
@@ -565,5 +579,6 @@ Some results that wouldn't fit into the main thesis
 Something else
 
 
+\backmatter
 
 \end{document}
