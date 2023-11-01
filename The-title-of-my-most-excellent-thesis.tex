@@ -138,13 +138,13 @@
 \usepackage{fancyhdr}
 \setstretch{2.0}
 \usepackage{array} % Include the array package
-\renewcommand{\arraystretch}{0.5} % Adjust the value as needed
+\renewcommand{\arraystretch}{0.75} % Adjust the value as needed
 \usepackage{sectsty}
 \usepackage{titlesec}
-\titleformat{\chapter}{\Huge\bfseries\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
+\titleformat{\chapter}{\Huge\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
 \titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{6ex plus .2ex}
-\titlespacing*{\section}{0pt}{10ex plus 1ex minus .2ex}{3ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{10ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\section}{0pt}{5ex plus 1ex minus .2ex}{3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{5ex plus 1ex minus .2ex}{1ex plus .2ex}
 \sectionfont{\fontsize{12}{15}\selectfont\flushleft}
 \subsectionfont{\fontsize{12}{15}\selectfont\flushleft}
 \makeatletter
@@ -225,8 +225,8 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \vskip 1cm
-    {\Huge\bfseries The title of my most excellent thesis \par}
+    \vskip 1.5cm
+    {\Huge The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
       to the Department of Ecology and Evolutionary Biology\\  % Department and Degree stream
@@ -258,7 +258,7 @@
 
    % Signature Lines
   \begin{flushright}
-    \vfill
+    \vfill{1ex}
     \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
       Approved by: & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 1 \\
@@ -287,8 +287,8 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \vskip 1cm
-    {\Huge\bfseries The title of my most excellent thesis \par}
+    \vskip 1.5cm
+    {\Huge The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
       to the Department of Ecology and Evolutionary Biology\\  % Department and Degree stream
@@ -320,7 +320,7 @@
 
    % Signature Lines
   \begin{flushright}
-    \vfill
+    \vfill{1ex}
     \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
       Approved by: & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 1 \\
@@ -361,7 +361,7 @@
     \renewcommand{\footrulewidth}{0pt}
  }
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, enhanced, boxrule=0pt, sharp corners, interior hidden, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -371,7 +371,9 @@
 \bookmarksetup{startatroot}
 
 \hypertarget{section}{%
-\chapter{}\label{section}}
+\chapter*{}\label{section}}
+
+\markboth{}{}
 
 \thispagestyle{empty}
 
@@ -436,7 +438,10 @@ ullamcorper.
 \bookmarksetup{startatroot}
 
 \hypertarget{introduction}{%
-\chapter{Introduction}\label{introduction}}
+\chapter*{Introduction}\label{introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\markboth{Introduction}{Introduction}
 
 \input{tex/top_pagenumber.tex}
 
