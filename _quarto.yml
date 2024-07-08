@@ -28,12 +28,11 @@ thesis:
   #   - name: Dr. Ashok Kunil2
   #   - name: Dr. Ashok Kunil3
   #   - name: Dr. Ashok Kunil4
-  degree-name: DOCTOR OF PHILOSOPHY
-  university: University of Ottawa
-  #school: School of Science and Engineeringrrrrr
+  degree-name: Doctor of Philosophy
+  university: Tulane University
   department: Department of Ecology and Evolutionary Biology
-  group: Informatics Program
-  faculty: Applied Math Group
+  #group: Informatics Program
+  faculty: School of Science and Engineering
   declaration: "frontmatter/declaration.tex"
   quotation:
     text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
