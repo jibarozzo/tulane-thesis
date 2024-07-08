@@ -33,7 +33,7 @@
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage{xcolor}
-\usepackage[inner=2in,outer=1in,top=1in,bottom=1in,headsep=1pt,headheight=1pt,footskip=33pt,ignorehead,ignorefoot,heightrounded]{geometry}
+\usepackage[inner=1.5in,outer=1in,bottom=1in,top=1in,headsep=0pt,headheight=1pt,footskip=33pt,includehead,ignorefoot,heightrounded]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{3}
 % Make \paragraph and \subparagraph free-standing
@@ -141,10 +141,10 @@
 \renewcommand{\arraystretch}{0.75} % Adjust the value as needed
 \usepackage{sectsty}
 \usepackage{titlesec}
-\titleformat{\chapter}{\Huge\flushleft}{}{0pt}{\fontsize{24}{20}\selectfont}
-\titlespacing*{\chapter}{0pt}{0ex plus 1ex minus .2ex}{6ex plus .2ex}
+\titleformat{\chapter}{\Huge\flushleft}{}{2pt}{\fontsize{24}{20}\selectfont}
+\titlespacing*{\chapter}{0pt}{8ex plus 1ex minus .2ex}{6ex plus .2ex}
 \titlespacing*{\section}{0pt}{5ex plus 1ex minus .2ex}{3ex plus .2ex}
-\titlespacing*{\subsection}{0pt}{5ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3ex plus 1ex minus .2ex}{1ex plus .2ex}
 \sectionfont{\fontsize{12}{15}\selectfont\flushleft}
 \subsectionfont{\fontsize{12}{15}\selectfont\flushleft}
 \makeatletter
@@ -225,7 +225,7 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \vskip 1.5cm
+    \vskip 3cm
     {\Huge The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
@@ -258,9 +258,9 @@
 
    % Signature Lines
   \begin{flushright}
-    \vfill{1ex}
+    \vspace{3ex}
     \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
-      Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+      APPROVED: & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 1 \\
                    & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 2 \\
@@ -287,7 +287,7 @@
   \cleardoublepage
   \thispagestyle{empty}
   {\centering
-    \vskip 1.5cm
+    \vskip 3cm
     {\Huge The title of my most excellent thesis \par}
       \vspace{8ex}
     {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
@@ -320,9 +320,9 @@
 
    % Signature Lines
   \begin{flushright}
-    \vfill{1ex}
+    \vspace{3ex}
     \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
-      Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+      APPROVED: & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 1 \\
                    & \rule{0.4\textwidth}{0.4pt} \\
                    & Your Signature 2 \\
@@ -353,7 +353,7 @@
 % % % \listoffigures
 % 
 \let\mainmatterreal\mainmatter
-\let\mainmatter\relax\pagenumbering{roman} % Roman numerals for Title to Intro pages
+\let\mainmatter\relax\pagenumbering{roman} % Roman numerals for Title to Intro pages (Front Matter)
 \fancypagestyle{plain}{%
     \fancyhf{} % clear all header and footer fields
     \fancyfoot[C]{\thepage} % page number in center of footer
@@ -361,7 +361,7 @@
     \renewcommand{\footrulewidth}{0pt}
  }
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, breakable]}{\end{tcolorbox}}\fi
 
     \renewcommand*\contentsname{Table of Contents}
     \setcounter{tocdepth}{2}
@@ -381,6 +381,7 @@
 
 \hypertarget{acknowledgement}{%
 \chapter*{Acknowledgement}\label{acknowledgement}}
+\addcontentsline{toc}{chapter}{Acknowledgement}
 
 \markboth{Acknowledgement}{Acknowledgement}
 
@@ -408,6 +409,7 @@ ullamcorper.
 
 \hypertarget{foreword}{%
 \chapter*{Foreword}\label{foreword}}
+\addcontentsline{toc}{chapter}{Foreword}
 
 \markboth{Foreword}{Foreword}
 
@@ -431,9 +433,9 @@ pulvinar urna dictum pharetra. In hac habitasse platea dictumst. Mauris
 eu neque nec felis congue egestas. Aenean eget nibh in purus fringilla
 ullamcorper.
 
-\tableofcontents
 \listoftables
 \listoffigures
+\tableofcontents
 
 \bookmarksetup{startatroot}
 
@@ -465,7 +467,7 @@ See Knuth (1984) for additional discussion of literate programming.
 \chapter{Chapter 1}\label{chapter-1}}
 
 \hypertarget{section-1}{%
-\section{Section 1}\label{section-1}}
+\section{Section}\label{section-1}}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
 vestibulum vehicula consequat. Pellentesque consectetur dignissim
@@ -478,8 +480,8 @@ a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
 odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
 Aliquam quis magna quis augue ornare ultrices.
 
-\hypertarget{subsection-1.1}{%
-\subsection{Subsection 1.1}\label{subsection-1.1}}
+\hypertarget{subsection}{%
+\subsection{Subsection}\label{subsection}}
 
 Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
 mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
@@ -505,6 +507,16 @@ parturient montes, nascetur ridiculus mus. Morbi nec varius lorem. Fusce
 a faucibus lectus. Sed eros erat, iaculis id fringilla vitae, egestas in
 odio. Nam dapibus suscipit dolor, sit amet ullamcorper augue euismod ac.
 Aliquam quis magna quis augue ornare ultrices.
+
+\begin{figure}
+
+{\centering \includegraphics{chapter2_files/figure-pdf/unnamed-chunk-1-1.pdf}
+
+}
+
+\caption{A figure caption}
+
+\end{figure}
 
 Sed malesuada maximus est et pellentesque. Mauris et laoreet neque, et
 mollis nunc. Donec neque erat, lobortis eu sagittis eget, commodo quis
