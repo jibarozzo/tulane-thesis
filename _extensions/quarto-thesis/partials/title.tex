@@ -1,10 +1,11 @@
 \thesistitle{$title$} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
-\supervisor{$thesis.supervisor.name$} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+%\supervisor{$thesis.supervisor.name$} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+%\newcommand{\supervisor}[1]{\def\supname{#1}}
+\newcommand{\supervisorA}[1]{\def\supnameA{#1}}
+\newcommand{\supervisorB}[1]{\def\supnameB{#1}}
+\supervisorA{$thesis.supervisor.A$} % Your supervisor's name, this is used in the title page, print it elsewhere with \supnameA
+\supervisorB{$thesis.supervisor.B$} % Your supervisor's name, this is used in the title page, print it elsewhere with \supnameB
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-%\committeememberA{$thesis.committee.a$} % Your committee member's name, this is not currently used anywhere in the template, print it elsewhere with \committeenamea
-%\committeememberB{$thesis.committee.b$} % Your committee member's name, this is not currently used anywhere in the template, print it elsewhere with \committeenameb
-%\committeememberC{$thesis.committee.c$} % Your committee member's name, this is not currently used anywhere in the template, print it elsewhere with \committeenamec
-%\committeememberD{$thesis.committee.d$} % Your committee member's name, this is not currently used anywhere in the template, print it elsewhere with \committeenamed
 \degree{$thesis.degree-name$} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{$author$} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
@@ -21,13 +22,20 @@ $if(thesis.department)$
 \department{$thesis.department$} % Your department's name, this is used in the title page and abstract, print it elsewhere with \deptname
 $else$\department{}
 $endif$
+
 $if(thesis.group)$
 \group{$thesis.group$} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 $else$\group{}
 $endif$
+
 $if(thesis.faculty)$
 \faculty{$thesis.faculty$} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 $else$
-\faculty{}$endif$
+\faculty{}
+$endif$
+
+% $for(thesis.supervisor)$
+% \supervisor{$thesis.supervisor.name$}
+% $endfor$
 
 \setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$3$endif$} % The depth to which the document sections are printed to the table of contents

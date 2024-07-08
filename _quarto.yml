@@ -23,11 +23,9 @@ book:
   search: true
 
 thesis:
-  # committee: 
-  #   - name: Dr. Ashok Kunil
-  #   - name: Dr. Ashok Kunil2
-  #   - name: Dr. Ashok Kunil3
-  #   - name: Dr. Ashok Kunil4
+  supervisor: 
+    A: Dr. Ashok Kunil
+    B: Dr. Jane Doe
   degree-name: Doctor of Philosophy
   university: Tulane University
   department: Department of Ecology and Evolutionary Biology
@@ -58,4 +56,5 @@ format:
     urlcolor: red
     toclinkcolor: black
     toc-depth: 2
+
 
