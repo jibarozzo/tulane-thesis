@@ -3,69 +3,13 @@
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
+%	TITLE PAGE (ABSRACT)
 %----------------------------------------------------------------------------------------
 
-% \begin{titlepage}
-% \begin{center}
-
-% \vspace*{.06\textheight}
-% {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-% \textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
-
-% \HRule \\[0.4cm] % Horizontal line
-% {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-% \HRule \\[1.5cm] % Horizontal line
- 
-% \begin{minipage}[t]{0.4\textwidth}
-% \begin{flushleft} \large
-% \emph{Author:}\\
-% $if(author.url)$
-% \href{$author.url$}{\authorname} % Author name - remove the \href bracket to remove the link
-% $else$
-% \authorname
-% $endif$
-% \end{flushleft}
-% \end{minipage}
-% \begin{minipage}[t]{0.4\textwidth}
-% \begin{flushright} \large
-% \emph{Supervisor:} \\
-% $if(thesis.supervisor.url)$%
-% \href{$thesis.supervisor.url$}{\supname} % Supervisor name - remove the \href bracket to remove the link  
-% $else$%
-% \supname
-% $endif$
-% \end{flushright}
-% \end{minipage}\\[3cm]
- 
-% \vfill
-
-% \large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-% \textit{in the}\\[0.4cm]
-% \groupname\\
-% \deptname\\[2cm] % Research group name and department name
- 
-% \vfill
-
-% $if(thesis.logo)$
-% $if(thesis.logo-height)$
-% \includegraphics[height=$thesis.logo-height$]{$thesis.logo$} % University/department logo
-% $else$
-% \includegraphics{$thesis.logo$}
-% $endif$
-% $endif$
-
-% $if(book.date)$
-% {\large $book.date$}\\[4cm] % Date
-% $endif$
-
- 
-% \vfill
-% \end{center}
-% \end{titlepage}
+\begin{titlepage}
 
 $if(has-frontmatter)$
-\frontmatter
+%\frontmatter
 $endif$
 $if(title)$
 \cleardoublepage
@@ -78,7 +22,7 @@ $if(title)$
     {\Large $subtitle$ \par}
   $endif$
   \vspace{8ex}
-  {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
+  {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
     to the $thesis.department$ \\  % Department and Degree stream
     in partial Fulfillment for the Requirements of \\
     of the $thesis.faculty$ \\ % Faculty/school and University
@@ -128,19 +72,104 @@ $endif$
   \end{tabular}
 \end{flushright}
 
+\end{titlepage}
+
+$if(abstract)$
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+$abstract$
+\end{abstract}
+
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	SECOND TITLE PAGE (DISSERTATION)
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+
+  %$if(has-frontmatter)$
+  %\frontmatter
+  %$endif$
+  $if(title)$
+  \cleardoublepage
+  \thispagestyle{empty}
+  {\centering
+    \vskip 1.5cm
+    {\Huge $title$ \par}
+    $if(subtitle)$
+      \vspace{3ex}
+      {\Large $subtitle$ \par}
+    $endif$
+    \vspace{8ex}
+    {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
+      to the $thesis.department$ \\  % Department and Degree stream
+      in partial Fulfillment for the Requirements of \\
+      of the $thesis.faculty$ \\ % Faculty/school and University
+      of $thesis.university$\\
+      for the degree\\
+      of\\ \par}}
+    \vspace{2ex}
+      {\small\bfseries\MakeUppercase{ $thesis.degree-name$\\ \par}}
+      \vspace{2ex}
+      {\small\MakeUppercase{ by\\ \par}}
+    \vspace{3ex}
+    \begin{center}
+      \rule{0.4\textwidth}{0.4pt} \\
+      $for(by-author)$
+      {\normalsize\bfseries $by-author.name.literal$ \par}
+    \end{center}
+    \vspace{0ex}
+    
+    %\vspace{3ex}
+    %{\Large ORCID: $by-author.orcid$ \par}
+    %\vskip 0cm plus 2fill
+    %{\bfseries\large Doctor of Philosophy \par}
+    %\vspace{3ex}
+    %\vspace{12ex}
+    %$for(by-author.affiliations)$%
+    %$if(it.department)$%
+    %{\bfseries\large $it.department$ \par}
+    %$endif$%
+    %{\bfseries\large $it.name$ \par}
+    %$endfor$$endfor$%
+    %\vspace{12ex}
+   }
+  $endif$
+  
+   % Signature Lines
+  \begin{flushright}
+    \vfill
+    \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+      Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+                   & $thesis.supervisor.A$ \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & $thesis.supervisor.B$  \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & $thesis.supervisor.C$ \\
+                   & \rule{0.4\textwidth}{0.4pt} \\
+                   & $thesis.supervisor.D$ \\
+    \end{tabular}
+  \end{flushright}
+  
+ \end{center}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
-$if(thesis.declaration)$
-\begin{declaration}
-\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
-$if(thesis.declaration.text)$
-$thesis.declaration.text$
-$else$
-\input{"$thesis.declaration$"}
-$endif$
+% $if(thesis.declaration)$
+% \begin{declaration}
+% \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+% $if(thesis.declaration.text)$
+% $thesis.declaration.text$
+% $else$
+% \input{"$thesis.declaration$"}
+% $endif$
 
-\end{declaration}
+% \end{declaration}
 
 \cleardoublepage
 $endif$
@@ -159,18 +188,6 @@ $if(thesis.quotation.text)$
 $else$
 \input{``$thesis.quotation$''}
 $endif$
-
-$endif$
-
-$if(abstract)$
-%----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE
-%----------------------------------------------------------------------------------------
-
-\begin{abstract}
-\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-$abstract$
-\end{abstract}
 
 $endif$
 
