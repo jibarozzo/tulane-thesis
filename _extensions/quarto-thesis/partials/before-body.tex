@@ -1,18 +1,17 @@
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE (ABSRACT)
+% Not offically included as \frontmatter.
+% This allows for numbering to start at "Second" title page
 %----------------------------------------------------------------------------------------
 
 \begin{titlepage}
 
 $if(has-frontmatter)$
-%\frontmatter
 $endif$
 $if(title)$
-\cleardoublepage
+\cleardoublepage % For double sided printing
 {\centering
   \vskip 1.5cm
   {\Huge $title$ \par}
@@ -75,11 +74,11 @@ $endif$
 \thispagestyle{empty}
 
 $if(abstract)$
+
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 \clearpage % Start a new page
-\thispagestyle{empty}
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 $abstract$
@@ -87,77 +86,80 @@ $abstract$
 
 $endif$
 \thispagestyle{empty}
+
 %----------------------------------------------------------------------------------------
 %	SECOND TITLE PAGE (DISSERTATION)
 %----------------------------------------------------------------------------------------
-%\clearpage
+
+\pagestyle{frontmatter} % Make sure the page numbering is in footer for frontmatter.
+\frontmatter
+
 \begin{center}
 
-  %$if(has-frontmatter)$
-  %\frontmatter
-  %$endif$
-  $if(title)$
-  %\cleardoublepage
-  {\centering
-    \vskip 1.5cm
-    {\Huge $title$ \par}
-    $if(subtitle)$
-      \vspace{3ex}
-      {\Large $subtitle$ \par}
-    $endif$
-    \vspace{8ex}
-    {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
-      to the $thesis.department$ \\  % Department and Degree stream
-      in partial Fulfillment for the Requirements of \\
-      of the $thesis.faculty$ \\ % Faculty/school and University
-      of $thesis.university$\\
-      for the degree\\
-      of\\ \par}}
-    \vspace{2ex}
-      {\small\bfseries\MakeUppercase{ $thesis.degree-name$\\ \par}}
-      \vspace{2ex}
-      {\small\MakeUppercase{ by\\ \par}}
-    \vspace{3ex}
-    \begin{center}
-      \rule{0.4\textwidth}{0.4pt} \\
-      $for(by-author)$
-      {\normalsize\bfseries $by-author.name.literal$ \par}
-    \end{center}
-    \vspace{0ex}
-    
-    %\vspace{3ex}
-    %{\Large ORCID: $by-author.orcid$ \par}
-    %\vskip 0cm plus 2fill
-    %{\bfseries\large Doctor of Philosophy \par}
-    %\vspace{3ex}
-    %\vspace{12ex}
-    %$for(by-author.affiliations)$%
-    %$if(it.department)$%
-    %{\bfseries\large $it.department$ \par}
-    %$endif$%
-    %{\bfseries\large $it.name$ \par}
-    %$endfor$$endfor$%
-    %\vspace{12ex}
-   }
-  $endif$
-  
-   % Signature Lines
-  \begin{flushright}
-    \vfill
-    \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
-      Approved by: & \rule{0.4\textwidth}{0.4pt} \\
-                   & $thesis.supervisor.A$ \\
-                   & \rule{0.4\textwidth}{0.4pt} \\
-                   & $thesis.supervisor.B$  \\
-                   & \rule{0.4\textwidth}{0.4pt} \\
-                   & $thesis.supervisor.C$ \\
-                   & \rule{0.4\textwidth}{0.4pt} \\
-                   & $thesis.supervisor.D$ \\
-    \end{tabular}
-  \end{flushright}
-  
- \end{center}
- \thispagestyle{empty}
+$if(has-frontmatter)$
+$endif$
+$if(title)$
+%\cleardoublepage % For double sided printing
+{\centering
+   \vskip 1.5cm
+   {\Huge $title$ \par}
+   $if(subtitle)$
+     \vspace{3ex}
+     {\Large $subtitle$ \par}
+   $endif$
+   \vspace{8ex}
+   {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
+     to the $thesis.department$ \\  % Department and Degree stream
+     in partial Fulfillment for the Requirements of \\
+     of the $thesis.faculty$ \\ % Faculty/school and University
+     of $thesis.university$\\
+     for the degree\\
+     of\\ \par}}
+   \vspace{2ex}
+     {\small\bfseries\MakeUppercase{ $thesis.degree-name$\\ \par}}
+     \vspace{2ex}
+     {\small\MakeUppercase{ by\\ \par}}
+   \vspace{3ex}
+   \begin{center}
+     \rule{0.4\textwidth}{0.4pt} \\
+     $for(by-author)$
+     {\normalsize\bfseries $by-author.name.literal$ \par}
+   \end{center}
+   \vspace{0ex}
+   
+   %\vspace{3ex}
+   %{\Large ORCID: $by-author.orcid$ \par}
+   %\vskip 0cm plus 2fill
+   %{\bfseries\large Doctor of Philosophy \par}
+   %\vspace{3ex}
+   %\vspace{12ex}
+   %$for(by-author.affiliations)$%
+   %$if(it.department)$%
+   %{\bfseries\large $it.department$ \par}
+   %$endif$%
+   %{\bfseries\large $it.name$ \par}
+   %$endfor$$endfor$%
+   %\vspace{12ex}
+}
+ $endif$
+ 
+  % Signature Lines
+ \begin{flushright}
+   \vfill
+   \begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+     Approved by: & \rule{0.4\textwidth}{0.4pt} \\
+                  & $thesis.supervisor.A$ \\
+                  & \rule{0.4\textwidth}{0.4pt} \\
+                  & $thesis.supervisor.B$  \\
+                  & \rule{0.4\textwidth}{0.4pt} \\
+                  & $thesis.supervisor.C$ \\
+                  & \rule{0.4\textwidth}{0.4pt} \\
+                  & $thesis.supervisor.D$ \\
+   \end{tabular}
+ \end{flushright}
+ 
+\end{center}
+\thispagestyle{empty}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------

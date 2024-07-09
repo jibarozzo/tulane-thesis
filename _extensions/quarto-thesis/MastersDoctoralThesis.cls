@@ -262,17 +262,28 @@
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
 %----------------------------------------------------------------------------------------
-
+%--------------------------------
+% New frontmatter page style to ensure page number center footer
+%--------------------------------
 \RequirePackage[markcase=used]{scrlayer-scrpage}
+\providepairofpagestyles{frontmatter}{%
+    \cfoot[\pagemark]{\pagemark}% Center footer
+}
+\pagestyle{frontmatter}
+%--------------------------------
+
 \providepairofpagestyles{thesisSimple}{%
 	\clearpairofpagestyles%
 	\automark[chapter]{chapter}
-	\ihead{\headmark}% Inner header
+	%\ihead{\headmark}% Inner header (Chapter title) %%%%%%%%% Comment to remove header line
 	\ohead[\pagemark]{\pagemark}% Outer header
 }
 \ifoot{}% Inner footer
 \ofoot{}% Outer footer
 \pagestyle{thesisSimple}
+
+
+
 \providepairofpagestyles[thesisSimple]{thesis}{%
 	\automark*[section]{}%
 }
