@@ -13,7 +13,6 @@ $if(has-frontmatter)$
 $endif$
 $if(title)$
 \cleardoublepage
-\thispagestyle{empty}
 {\centering
   \vskip 1.5cm
   {\Huge $title$ \par}
@@ -73,31 +72,32 @@ $endif$
 \end{flushright}
 
 \end{titlepage}
+\thispagestyle{empty}
 
 $if(abstract)$
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
-
+\clearpage % Start a new page
+\thispagestyle{empty}
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 $abstract$
 \end{abstract}
 
 $endif$
-
+\thispagestyle{empty}
 %----------------------------------------------------------------------------------------
 %	SECOND TITLE PAGE (DISSERTATION)
 %----------------------------------------------------------------------------------------
-
+%\clearpage
 \begin{center}
 
   %$if(has-frontmatter)$
   %\frontmatter
   %$endif$
   $if(title)$
-  \cleardoublepage
-  \thispagestyle{empty}
+  %\cleardoublepage
   {\centering
     \vskip 1.5cm
     {\Huge $title$ \par}
@@ -157,6 +157,7 @@ $endif$
   \end{flushright}
   
  \end{center}
+ \thispagestyle{empty}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
