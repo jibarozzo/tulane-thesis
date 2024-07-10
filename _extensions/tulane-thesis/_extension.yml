@@ -1,13 +1,13 @@
-title: quarto-thesis
-author: Eli Holmes
-version: 0.2.5
+title: tulane-thesis
+author: Bolivar
+version: 0.1.0
 contributes:
   format:
     pdf:
-      documentclass: MastersDoctoralThesis
-      classoption: ["11pt", "english", "doublespacing", "oneside"] # Modified to include doublespacing and remove header line
+      documentclass: tulane-thesis
+      classoption: ["11pt", "english", "doublespacing", "oneside"] # Modified to include doublespacing and remove header line "singlespacing", "headsepline"
       format-resources:
-        - MastersDoctoralThesis.cls
+        - "_extensions/tulane-thesis/tulane-thesis.cls"
       template-partials: 
         - "partials/title.tex"
         - "partials/before-body.tex"
