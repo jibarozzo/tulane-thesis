@@ -34,9 +34,9 @@ thesis:
   #group: Informatics Program
   faculty: School of Science and Engineering
   declaration: "frontmatter/declaration.tex"
-  # quotation:
-  #   text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
-  #   attribution: Dave Barry
+  quotation:
+     text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
+     attribution: Dave Barry
   acknowledgements: "frontmatter/acknowledgements.tex"
   abbreviations: "frontmatter/abbreviations.tex"
   symbols: "frontmatter/symbols.tex"
@@ -54,9 +54,10 @@ execute:
 # linkcolor changes color of internal links (like to figures)
 # toclinkcolor changes color of toc, lof and lot links
 format:
-  tulane-thesis-pdf: 
-    urlcolor: red
-    toclinkcolor: black
-    toc-depth: 2
+  output: "test.pdf"
+    tulane-thesis-pdf:
+      urlcolor: red
+      toclinkcolor: black
+      toc-depth: 2
 
 

@@ -15,6 +15,10 @@
 % 2) It has been written in such a way that under most circumstances you should not need
 % to edit it; updating it to a newer version will be harder. If you do make changes, please change the name of
 % the file and add comments to make your changes more visible.
+% 
+% Modified by:
+% Bolívar Aponte Rolón (bolaponte AT pm.me)
+% Modified to meet Tulane University's thesis/dissertation format requirements
 %
 % Class license:
 % LPPL v1.3c (http://www.latex-project.org/lppl)
