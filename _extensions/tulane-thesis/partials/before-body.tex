@@ -20,7 +20,7 @@ $if(title)$
     {\Large $subtitle$ \par}
   $endif$
   \vspace{8ex}
-  {\small\MakeUppercase{ An Abstract Submitted on {\today}\\
+  {\small\MakeUppercase{ An Abstract Submitted on $book.date$\\
     to the $thesis.department$ \\  % Department and Degree stream
     in partial Fulfillment for the Requirements of \\
     of the $thesis.faculty$ \\ % Faculty/school and University
@@ -108,7 +108,7 @@ $if(title)$
      {\Large $subtitle$ \par}
    $endif$
    \vspace{8ex}
-   {\small\MakeUppercase{ A Dissertation Submitted on {\today}\\
+   {\small\MakeUppercase{ A Dissertation Submitted on $book.date$\\
      to the $thesis.department$ \\  % Department and Degree stream
      in partial Fulfillment for the Requirements of \\
      of the $thesis.faculty$ \\ % Faculty/school and University
@@ -160,22 +160,42 @@ $if(title)$
  
 \end{center}
 \thispagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+\pagestyle{frontmatter} % Make sure the page numbering is in footer for frontmatter.
+\frontmatter
+
+$if(thesis.copyr)$
+\begin{copyr}
+$if(thesis.copyr.text)$
+$thesis.copyr.text$
+$else$
+\input{"$thesis.copyr$"}
+$endif$
+
+\end{copyr}
+
+\cleardoublepage
+$endif$
+
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
-% $if(thesis.declaration)$
-% \begin{declaration}
-% \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
-% $if(thesis.declaration.text)$
-% $thesis.declaration.text$
-% $else$
-% \input{"$thesis.declaration$"}
-% $endif$
+$if(thesis.declaration)$
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+$if(thesis.declaration.text)$
+$thesis.declaration.text$
+$else$
+\input{"$thesis.declaration$"}
+$endif$
 
-% \end{declaration}
+\end{declaration}
 
-% \cleardoublepage
-% $endif$
+\cleardoublepage
+$endif$
 
 $if(thesis.quotation)$
 %----------------------------------------------------------------------------------------

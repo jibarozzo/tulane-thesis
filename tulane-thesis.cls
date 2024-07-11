@@ -227,6 +227,7 @@
 \NewDocumentCommand{\faculty}{m}{\newcommand{\facname}{#1}}
 \NewDocumentCommand{\subject}{m}{\newcommand{\subjectname}{#1}}
 \NewDocumentCommand{\keywords}{m}{\newcommand{\keywordnames}{#1}}
+\NewDocumentCommand{\copyr}{m}{\newcommand{\copyname}{#1}}
 
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
 	\if@openright\cleardoublepage\else\clearpage\fi
@@ -428,7 +429,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\checktoopen
 		\tttypeout{\abstractname}
 		\thispagestyle{plain}
-		\begin{center}{\huge\textit{\abstractname}\par}\end{center}
+		\begin{center}{\huge\bfseries{\abstractname}\par}\end{center}
 	}
 	{
 		\vfil\vfil\null
@@ -456,12 +457,33 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\checktoopen
 		\tttypeout{\acknowledgementname}
 		\thispagestyle{plain}
-		\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
+		\begin{center}{\huge\bfseries{\acknowledgementname}\par}\end{center}
 	}
 	{
 		\vfil\vfil\null
 	}
 }
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE DESIGN
+%----------------------------------------------------------------------------------------
+
+\newcommand{\copyname}{Copyright}
+%\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
+%\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
+
+\ifbool{consistentlayout}{
+	\DeclareDocumentEnvironment{copyr}{}{
+		\addchap*{\copyname}
+		}{}%
+}{
+	\DeclareDocumentEnvironment{copyr}{}{
+		\checktoopen
+		\tttypeout{\copyname}
+		\thispagestyle{plain}
+	}{}
+}
+
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN

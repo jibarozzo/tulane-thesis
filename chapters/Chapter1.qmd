@@ -32,7 +32,7 @@ http://www.ecs.soton.ac.uk/~srg/softwaretools/document/templates/.
 
 Steve's `ecsthesis.cls` was then taken by Sunil Patel who modified it by creating a skeleton framework and folder structure to place the thesis files in. The resulting template can be found on Sunil's site here: http://www.sunilpatel.co.uk/thesis-template.
 
-Sunil's template was made available through [LaTeXTemplates](http://www.LaTeXTemplates.com) where it was modified many times based on user requests and questions. Version 2.0 and onwards of this template represents a major modification to Sunil's template and is, in fact, hardly recognisable. The work to make version 2.0 possible was carried out by Vel (vel@latextemplates.com)  and Johannes Böttcher.
+Sunil's template was made available through [LaTeXTemplates](http://www.LaTeXTemplates.com) where it was modified many times based on user requests and questions. Version 2.0 and onwards of this template represents a major modification to Sunil's template and is, in fact, hardly recognisable. The work to make version 2.0 possible was carried out by Vel (vel@latextemplates.com)  and Johannes Böttcher. Here I have renamed it `tulane-theis.cls` to make it explicit that it is a Tulane University dissertation template.
 
 
 ## What this Template Includes
@@ -50,7 +50,7 @@ Sunil's template was made available through [LaTeXTemplates](http://www.LaTeXTem
 
 * example.bib -- this is file that contains all the bibliographic information and references that you will be citing in the thesis for use with BibTeX. You can write it manually, but there are reference manager programs available that will create and manage it for you. Zotero is popular and integrates with RStudio IDE if you use that.
 
-* MastersDoctoralThesis.cls -- this is the class file that tells \LaTeX{} how to format the thesis. 
+* tulane-thesis.cls -- this is the class file that tells \LaTeX{} how to format the thesis. 
 
 * pdf in docs folder -- this is your typeset thesis.
 
@@ -69,9 +69,9 @@ Most of the personal information is found on in the `_quarto.yml` file.
 * abstract
 
 
-## The `tex\before-body.tex` File Explained
+## The `_extensions/tulanethesis/partials/\before-body.tex` File Explained
 
-The `tex\before-body.tex` file contains the structure of the thesis and is a mix of Pandoc template and \LaTeX{} code. The bits that look like `$book.university$` say are Pandoc and are referencing variables in the `_quarto.yml` file. Knowing that, you should be able to figure out what is happening.
+The `../before-body.tex` file contains the structure of the thesis and is a mix of Pandoc template and \LaTeX{} code. The bits that look like `$book.university$` say are Pandoc and are referencing variables in the `_quarto.yml` file. Knowing that, you should be able to figure out what is happening.
 
 There are plenty of written comments that explain what pages, sections and formatting the \LaTeX{} code is creating. Each major document element is divided into commented blocks with titles in all capitals to make it obvious what the following bit of code is doing. Initially there seems to be a lot of \LaTeX{} code, but this is all formatting, and it has all been taken care of so you don't have to do it.
 
@@ -99,7 +99,7 @@ In the text use `@smith2000` to produce Smith (2000) add use `[@smith2000, @jone
 
 #### A Note on bibtex
 
-The bibtex backend used in the template by default does not correctly handle unicode character encoding (i.e. "international" characters). You may see a warning about this in the compilation log and, if your references contain unicode characters, they may not show up correctly or at all. One solution to this is to use the biber backend instead of the outdated bibtex backend. This is done by finding this in `tex/in-header.tex`: `backend=bibtex` and changing it to `backend=biber`. Google a bit to find information on this.
+The bibtex backend used in the template by default does not correctly handle unicode character encoding (i.e. "international" characters). You may see a warning about this in the compilation log and, if your references contain unicode characters, they may not show up correctly or at all. One solution to this is to use the biber backend instead of the outdated bibtex backend. This is done by finding this in `../partials/in-header.tex`: `backend=bibtex` and changing it to `backend=biber`. Google a bit to find information on this.
 
 ## Thesis Features and Conventions {#sec-ThesisConventions}
 
@@ -109,7 +109,7 @@ To get the best out of this template, there are a few conventions that you may w
 
 This thesis template is designed for double sided printing (i.e. content on the front and back of pages) as most theses are printed and bound this way. Switching to one sided printing is as simple as adding `"oneside"` to `classoptions:` in the `_quarto.yml` file. The headers for the pages contain the page number on the outer side (so it is easy to flick through to the page you want) and the chapter name on the inner side.
 
-The text is set to 11 point by default with single line spacing, again, you can tune the text size and spacing should you want or need to using the class options. The spacing can be changed similarly by replacing the `"singlespacing"` with `"onehalfspacing"` or `"doublespacing"` in the class options.
+The text is set to 11 point by default with single line spacing, again, you can tune the text size and spacing should you want or need to using the class options. The spacing can be changed similarly by replacing the `"singlespacing"` with `"onehalfspacing"` or `"doublespacing"` in the `classoptions`.
 
 ### Using US Letter Paper
 

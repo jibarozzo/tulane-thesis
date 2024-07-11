@@ -4,7 +4,8 @@ project:
 
 book:
   title: A doctoral thesis title
-  date: December 15, 2023
+  date: \today
+  date-format: long
   author:
     name: Jane Doe
     url: http://www.janedoe.com
@@ -17,11 +18,6 @@ book:
   appendices:
     - appendices/AppendixA.qmd
 
-  # site-url: https://nmfs-opensci.github.io/quarto-thesis/
-  # repo-url: https://github.com/nmfs-opensci/quarto-thesis
-  # repo-actions: [edit, source, issue]
-  # search: true
-
 thesis:
   supervisor: 
     A: "Dr. Ashok Kunil, Ph.D. (advisor)"
@@ -31,9 +27,10 @@ thesis:
   degree-name: Doctor of Philosophy
   university: Tulane University
   department: Department of Ecology and Evolutionary Biology
-  #group: Informatics Program
+  group: 
   faculty: School of Science and Engineering
-  declaration: "frontmatter/declaration.tex"
+  declaration: #"frontmatter/declaration.tex"
+  copyr: "frontmatter/copyright.tex"
   # quotation:
   #    text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
   #    attribution: Dave Barry
@@ -55,9 +52,14 @@ execute:
 # toclinkcolor changes color of toc, lof and lot links
 format:
   tulane-thesis-pdf:
-    urlcolor: red
-    toclinkcolor: black
     toc: false
     toc-depth: 3
+    # citeproc: false # these needs adding so that end reference list disappears
+    # filters:
+    #    - section-bibliographies # create references for each chapter
+    # reference-section-title: References # title for references at end of each section
+    # include-in-header: 
+    #       text: |
+    #         \usepackage[final]{pdfpages}
 
 
