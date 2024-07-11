@@ -1,5 +1,5 @@
 title: tulane-thesis
-author: Bolivar
+author: Bolívar Aponte Rolón
 version: 1.0.0
 quarto-required: ">=1.3.0"
 contributes:
@@ -12,7 +12,6 @@ contributes:
       template-partials: 
         - "partials/title.tex"
         - "partials/before-body.tex"
-        - "tex/_abstract_title.tex"
       toc: false
       toc-depth: 3
       include-before-body: 
@@ -24,6 +23,11 @@ contributes:
         - outer=1in
         - top=1in
         - bottom=1in
+        - headheight=1pt
+        - footskip=33pt
+        - ignorehead
+        - ignorefoot
+        - heightrounded
       papersize: letter #Paper size can also be called in the geometry section (paper=letter)
       indent: true
       #linestretch: 2.0 # double spacing

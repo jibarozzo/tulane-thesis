@@ -1,6 +1,6 @@
 # Tulane Dissertation Format
 
-*A Quarto template for Tulane University's SSE and SLA dissertations.*
+*A Quarto unofficial template for Tulane University's SSE and SLA dissertations.*
 
 <!-- badges: start -->
 

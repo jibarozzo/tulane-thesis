@@ -8,19 +8,19 @@ book:
   author:
     name: Jane Doe
     url: http://www.janedoe.com
-  downloads: [pdf]
   abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis accumsan ante. Quisque lorem metus, varius id urna eget, lacinia dapibus sem. Etiam laoreet, quam ac mollis congue, arcu leo dictum neque, nec euismod sem enim luctus odio. Donec condimentum tortor sit amet mollis volutpat. Donec ornare libero vel velit malesuada consectetur. Vestibulum in sem non justo dignissim congue at quis erat. Integer quis erat vitae mi maximus fringilla tristique nec odio. Morbi non ipsum sapien. Vestibulum tortor est, ultricies in eros et, bibendum iaculis justo. Cras pellentesque enim quam, id pretium lacus lacinia non. Integer velit neque, ultrices a malesuada vel, imperdiet quis enim. Quisque eu facilisis urna, ut faucibus lorem. Donec mollis turpis sed arcu venenatis interdum. Nulla facilisis tortor ac scelerisque consequat."
   chapters:
     - index.qmd
+    #- chapters/Chapter1.qmd
     - chapters/Chapter2.qmd
     - references.qmd
   appendices:
     - appendices/AppendixA.qmd
 
-  site-url: https://nmfs-opensci.github.io/quarto-thesis/
-  repo-url: https://github.com/nmfs-opensci/quarto-thesis
-  repo-actions: [edit, source, issue]
-  search: true
+  # site-url: https://nmfs-opensci.github.io/quarto-thesis/
+  # repo-url: https://github.com/nmfs-opensci/quarto-thesis
+  # repo-actions: [edit, source, issue]
+  # search: true
 
 thesis:
   supervisor: 
@@ -34,9 +34,9 @@ thesis:
   #group: Informatics Program
   faculty: School of Science and Engineering
   declaration: "frontmatter/declaration.tex"
-  quotation:
-     text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
-     attribution: Dave Barry
+  # quotation:
+  #    text: "Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism."
+  #    attribution: Dave Barry
   acknowledgements: "frontmatter/acknowledgements.tex"
   abbreviations: "frontmatter/abbreviations.tex"
   symbols: "frontmatter/symbols.tex"
@@ -44,7 +44,7 @@ thesis:
   logo: images/logo.png
   logo-height: "3cm"
 
-bibliography: [example.bib]
+bibliography: [references.bib]
 
 execute:
   echo: false
@@ -54,10 +54,10 @@ execute:
 # linkcolor changes color of internal links (like to figures)
 # toclinkcolor changes color of toc, lof and lot links
 format:
-  output: "test.pdf"
-    tulane-thesis-pdf:
-      urlcolor: red
-      toclinkcolor: black
-      toc-depth: 2
+  tulane-thesis-pdf:
+    urlcolor: red
+    toclinkcolor: black
+    toc: false
+    toc-depth: 3
 
 
